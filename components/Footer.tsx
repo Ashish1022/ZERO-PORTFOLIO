@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className='mt-10 pt-10'>
         <h1 className='text-24 text-white-1 font-extrabold text-center'>ZERO | PORTFOLIO</h1>
-        <div className='flex justify-center gap-8 my-8'>
+        <div className='flex justify-center gap-8 my-8  max-md:gap-4'>
             {navbarLinks.map(({route,label})=>{
                 return <Link href={route} key={route} className='text-white-3'>
                     <p>{label}</p>

@@ -73,7 +73,7 @@ const About = () => {
           <div className='p-4 w-[50%] bg-gradient-to-r from-black-2/80 to-black-2/40 rounded-2xl relative'>
             {/* <Image src='/lamp.png' alt='lamp' width={100} height={100} className='absolute top-0'/> */}
             <h1 className='text-[42px] pl-2 py-7 font-extrabold'>Let's <br />Work <span className='text-blue-600'>together.</span></h1>
-            <Button className='absolute right-0 bottom-5' onClick={()=>router.push(`/`)}>
+            <Button className='absolute right-0 bottom-5' onClick={()=>router.push(`/contact`)}>
               <Image src='/arrowR.png' alt='arrow' width={50} height={50} className='transition hover:scale-150' />
             </Button>
           </div>

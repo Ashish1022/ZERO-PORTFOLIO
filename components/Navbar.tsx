@@ -16,7 +16,7 @@ const Navbar = () => {
                 <Link href='/' className='flex cursor-pointer items-center justify-center'>
                     <h1 className='text-24 font-extrabold max-lg:hidden'>ZERO | PORTFOLIO</h1>
                 </Link>
-                <div className='flex mx-auto gap-14'>
+                <div className='flex mx-auto gap-10'>
                     {navbarLinks.map(({ label, route }) => {
 
                         const isActive = pathName === route || pathName.startsWith(`${route}/`);

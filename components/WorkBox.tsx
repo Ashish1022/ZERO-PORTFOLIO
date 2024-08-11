@@ -15,13 +15,13 @@ const WorkBox = ({ image, type, name, projectId }: { image: string; type: string
     }
 
     return (
-        <div className='bg-black-1 w-fit rounded-2xl p-4 relative'>
-            <Image src={image} alt='image' width={300} height={250} className='rounded-2xl mb-8' />
-            <div className='mt-3 ml-2'>
+        <div className='bg-black-1 w-full rounded-2xl p-4 relative pb-8'>
+            <Image src={image} alt='image' width={400} height={250} className='rounded-2xl mb-8' />
+            <div className='mt-2 ml-2'>
                 <p className='text-white-3'>{type}</p>
                 <h1 className='font-bold'>{name}</h1>
             </div>
-            <Button className='absolute right-0 bottom-5' onClick={handleClick}>
+            <Button className='absolute right-1 bottom-10' onClick={handleClick}>
               <Image src='/arrowR.png' alt='arrow' width={50} height={50} className='transition hover:scale-150' />
             </Button>
         </div>
