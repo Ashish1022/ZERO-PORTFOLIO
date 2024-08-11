@@ -41,10 +41,10 @@ const Services = () => {
                 <Image src='/star.png' alt='star' width={80} height={40} />
               </div>
               <div className='p-6 bg-black-3 rounded-2xl grid grid-cols-2 gap-4'>
-                <ServiceBox title='Web development' description='I am a Mumbai based Information technology student with a focus on web design, automation and webhooks management. I have a diverse range of experience having worked across various tools and techs.' />
-                <ServiceBox title='Web development' description='I am a Mumbai based Information technology student with a focus on web design, automation and webhooks management. I have a diverse range of experience having worked across various tools and techs.' />
-                <ServiceBox title='Web development' description='I am a Mumbai based Information technology student with a focus on web design, automation and webhooks management. I have a diverse range of experience having worked across various tools and techs.' />
-                <ServiceBox title='Web development' description='I am a Mumbai based Information technology student with a focus on web design, automation and webhooks management. I have a diverse range of experience having worked across various tools and techs.' />
+                <ServiceBox title='Database Architecture Design' description='Skilled in designing efficient database architectures, focusing on creating scalable, high-performance solutions that ensure data integrity, optimize query performance, and support business needs.' />
+                <ServiceBox title='Webhooks Management' description='Expert in efficient webhook management, specializing in integrating and automating real-time data exchanges between systems to streamline workflows and enhance operational efficiency.' />
+                <ServiceBox title='Cloud Storage Management' description='Proficient in efficient cloud storage management, focusing on optimizing data storage solutions for scalability, security, and cost-effectiveness while ensuring seamless access and reliability.' />
+                <ServiceBox title='Web development' description='Experienced in full-stack web development, adept at creating dynamic, scalable web applications with expertise in both front-end and back-end technologies.' />
               </div>
             </div>
           </div>
@@ -55,7 +55,7 @@ const Services = () => {
                   <Image src='/twitter.svg' alt='insta' width={66} height={66} className='aspect-square rounded-full bg-black-2 border hover:bg-gray-1/70 transition' />
                 </Link>
                 <Link href='https://www.instagram.com/ashishhh2210' className='cursor-pointer' target={'_blank'}>
-                  <Image src='/twitter.svg' alt='insta' width={66} height={66} className='aspect-square rounded-full bg-black-2 border hover:bg-gray-1/70 transition' />
+                  <Image src='/instagram.svg' alt='insta' width={66} height={66} className='aspect-square bg-black-2 border hover:bg-gray-1/70 transition p-2 rounded-2xl' />
                 </Link>
 
               </div>
@@ -63,7 +63,7 @@ const Services = () => {
                 <p className='font-bold text-white-3'>STAY WITH ME</p>
                 <h1 className='text-white-1 font-extrabold text-20'>Socials.</h1>
               </div>
-              <Button className='absolute right-0 bottom-5'>
+              <Button className='absolute right-0 bottom-5' onClick={()=>router.push(`/socials`)}>
                 <Image src='/arrowR.png' alt='arrow' width={50} height={50} className='transition hover:scale-150' />
               </Button>
             </div>

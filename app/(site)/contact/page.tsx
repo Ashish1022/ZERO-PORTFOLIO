@@ -2,7 +2,7 @@
 
 import ContactBox from '@/components/ContactBox'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -28,9 +28,13 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from '@/components/ui/textarea'
+import Link from 'next/link'
 
 
 const Contact = () => {
+
+  const [result, setResult] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState<boolean>();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,8 +46,22 @@ const Contact = () => {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+
+  async function onSubmit(e: z.infer<typeof formSchema>) {
+    e:JSON.stringify({
+      name:e.name,
+      email:e.email,
+      subject:e.subject,
+      message:e.message,
+    })
+    setLoading(true)
+    fetch('/api/emails',{
+      method:'POST'
+    })
+    .then(response=>response.json())
+    .then(data => setResult(data))
+    .catch(error => setResult(error))
+    .finally(()=>setLoading(false))
   }
 
   return (
@@ -58,9 +76,15 @@ const Contact = () => {
           </div>
           <h1 className='font-bold text-white-2 mt-16 mb-8'>SOCIAL INFO.</h1>
           <div className='flex justify-between'>
-            <Image src='/twitter.svg' alt='twitter' width={80} height={40} className='bg-black-1 rounded-full p-5 aspect-square hover:bg-black-3 transition cursor-pointer' />
-            <Image src='/twitter.svg' alt='twitter' width={80} height={40} className='bg-black-1 rounded-full p-5 aspect-square hover:bg-black-3 transition cursor-pointer' />
-            <Image src='/twitter.svg' alt='twitter' width={80} height={40} className='bg-black-1 rounded-full p-5 aspect-square hover:bg-black-3 transition cursor-pointer' />
+            <Link href='https://www.instagram.com/ashishhh2210' className='cursor-pointer' target={'_blank'}>
+              <Image src='/instagram.svg' alt='insta' width={66} height={66} className='aspect-square bg-black-2 border hover:bg-gray-1/70 transition p-4 rounded-2xl' />
+            </Link>
+            <Link href='https://www.instagram.com/ashishhh2210' className='cursor-pointer' target={'_blank'}>
+              <Image src='/twitter.svg' alt='insta' width={66} height={66} className='aspect-square rounded-full bg-black-2 border hover:bg-gray-1/70 transition' />
+            </Link>
+            <Link href='https://discord.gg/63sd6r2N88' className='cursor-pointer' target={'_blank'}>
+              <Image src='/discord.svg' alt='insta' width={66} height={66} className='aspect-square rounded-full bg-black-2 border hover:bg-gray-1/70 transition p-3' />
+            </Link>
           </div>
         </div>
         <div className='w-[65%] bg-gradient-to-r from-black-1/40 to-black-1/70 rounded-2xl p-8'>
@@ -74,7 +98,7 @@ const Contact = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder="Name *" required {...field} className='border-none bg-gradient-to-r from-black-1 to-black-1/90 placeholder:font-bold h-14 rounded-xl'/>
+                        <Input placeholder="Your Name *" required {...field} className='border-none bg-gradient-to-r from-black-1 to-black-1/90 placeholder:font-bold h-14 rounded-xl' />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -86,7 +110,7 @@ const Contact = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder="Email *" required {...field} className='border-none bg-gradient-to-r from-black-1 to-black-1/90 placeholder:font-bold h-14 rounded-xl '/>
+                        <Input placeholder="Your Email *" required {...field} className='border-none bg-gradient-to-r from-black-1 to-black-1/90 placeholder:font-bold h-14 rounded-xl ' />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -98,7 +122,7 @@ const Contact = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Input placeholder="Your Subject *" required {...field} className='border-none bg-gradient-to-r from-black-1 to-black-1/90 placeholder:font-bold h-14 rounded-xl'/>
+                        <Input placeholder="Your Subject *" required {...field} className='border-none bg-gradient-to-r from-black-1 to-black-1/90 placeholder:font-bold h-14 rounded-xl' />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -110,7 +134,7 @@ const Contact = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormControl>
-                        <Textarea placeholder="Your Subject *" required {...field} className='border-none bg-gradient-to-r from-black-1 to-black-1/90 placeholder:font-bold min-h-[150px] rounded-xl' />
+                        <Textarea placeholder="Your Message *" required {...field} className='border-none bg-gradient-to-r from-black-1 to-black-1/90 placeholder:font-bold min-h-[150px] rounded-xl' />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

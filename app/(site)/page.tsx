@@ -29,19 +29,19 @@ const Home = () => {
         </div>
 
         <div className='flex gap-4'>
-          <Box className='w-[25%] h-[90%]' image='/cv.png' title='Download.' subtitle='MY CV' route='/work' />
+          <Box className='w-[25%] h-[90%]' image='/cv.png' title='Download.' subtitle='MY CV' route='/pdf/ashish.pdf'/>
           <div className='p-4 w-[50%] bg-gradient-to-r from-black-2/80 to-black-2/40 rounded-2xl relative'>
             <div className='flex gap-5 justify-evenly mt-12'>
-              <Link href='/' className='hover:scale-150 transition'>
+              <Link href='/' className='hover:scale-150 transition cursor-crosshair'>
                 <Image src='/webdev.png' alt='webdev' width={40} height={40} />
               </Link>
-              <Link href='/' className='hover:scale-150 transition'>
+              <Link href='/' className='hover:scale-150 transition cursor-crosshair'>
                 <Image src='/python.png' alt='webdev' width={40} height={40} />
               </Link>
-              <Link href='/' className='hover:scale-150 transition'>
+              <Link href='/' className='hover:scale-150 transition cursor-crosshair'>
                 <Image src='/server.png' alt='webdev' width={40} height={40} />
               </Link>
-              <Link href='/' className='hover:scale-150 transition'>
+              <Link href='/' className='hover:scale-150 transition cursor-crosshair'>
                 <Image src='/webhook.png' alt='webdev' width={40} height={40} />
               </Link>
             </div>
@@ -50,14 +50,14 @@ const Home = () => {
               <h1 className='text-white-1 font-extrabold text-20'>Services Offering.</h1>
             </div>
             <Button className='absolute right-0 bottom-5'>
-              <Image src='/arrowR.png' alt='arrow' width={50} height={50} className='transition hover:scale-150' />
+              <Image src='/arrowR.png' alt='arrow' width={50} height={50} className='transition hover:scale-150' onClick={()=>router.push('/services')}/>
             </Button>
           </div>
           
           <div className='p-4 w-[25%] relative bg-gradient-to-r from-black-2/80 to-black-2/40 rounded-2xl'>
             <div className='flex justify-evenly bg-gradient-to-l from-[#000000] rounded-3xl p-5 gap-8'>
               <Link href='https://www.instagram.com/ashishhh2210' className='cursor-pointer' target={'_blank'}>
-                <Image src='/twitter.svg' alt='insta' width={66} height={66} className='aspect-square rounded-full bg-black-2 border hover:bg-gray-1/70 transition' />
+                <Image src='/instagram.svg' alt='insta' width={66} height={66} className='aspect-square bg-black-2 border hover:bg-gray-1/70 transition p-4 rounded-2xl' />
               </Link>
               <Link href='https://www.instagram.com/ashishhh2210' className='cursor-pointer' target={'_blank'}>
                 <Image src='/twitter.svg' alt='insta' width={66} height={66} className='aspect-square rounded-full bg-black-2 border hover:bg-gray-1/70 transition' />
@@ -68,7 +68,7 @@ const Home = () => {
               <p className='font-bold text-white-3'>STAY WITH ME</p>
               <h1 className='text-white-1 font-extrabold text-20'>Socials.</h1>
             </div>
-            <Button className='absolute right-0 bottom-5'>
+            <Button className='absolute right-0 bottom-5' onClick={()=>router.push(`/socials`)}>
               <Image src='/arrowR.png' alt='arrow' width={50} height={50} className='transition hover:scale-150' />
             </Button>
           </div>
