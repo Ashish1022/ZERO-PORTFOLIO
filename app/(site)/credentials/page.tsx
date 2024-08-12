@@ -40,14 +40,14 @@ const Credentials = () => {
             <h1 className='font-mono text-24 font-bold mb-10 text-white-1'>SKILLS.</h1>
             <div className='flex gap-4'>
               <div className='flex flex-col gap-8 w-[50%]'>
-                <Skills skill='Python' percent='80%' sub='NumPy, MatPlotlib, Scikit-learn, OpenCV, PyGame' />
-                <Skills skill='Python' percent='80%' sub='NumPy, MatPlotlib, Scikit-learn, OpenCV, PyGame' />
-                <Skills skill='Python' percent='80%' sub='NumPy, MatPlotlib, Scikit-learn, OpenCV, PyGame' />
+                <Skills skill='Python' sub='NumPy, MatPlotlib, Scikit-learn, OpenCV, PyGame' />
+                <Skills skill='DevOps' sub='Git, GitHub, Docker, Jenkins, AWS, FileCloud' />
+                <Skills skill='Networking' sub='Wireshark, NMAP, VPNs, Firewalls' />
               </div>
               <div className='flex flex-col gap-8 w-[50%]'>
-                <Skills skill='Python' percent='80%' sub='NumPy, MatPlotlib, Scikit-learn, OpenCV, PyGame' />
-                <Skills skill='Python' percent='80%' sub='NumPy, MatPlotlib, Scikit-learn, OpenCV, PyGame' />
-                <Skills skill='Python' percent='80%' sub='NumPy, MatPlotlib, Scikit-learn, OpenCV, PyGame' />
+                <Skills skill='Web Development' sub='HTML, CSS, Tailwind CSS, JavaScript, TypeScript, Next JS, PostgreSQL, SEO' />
+                <Skills skill='Database' sub='SQL, PostgreSQL, MongoDB, Convex, Supabase' />
+                <Skills skill='Other tools' sub='Clerk, Stripe' />
               </div>
             </div>
           </div>
