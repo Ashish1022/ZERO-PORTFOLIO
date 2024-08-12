@@ -28,7 +28,7 @@ const Credentials = () => {
                 <Image src='/discord.svg' alt='twitter' width={50} height={50} className='rounded-full bg-black-2 aspect-square mx-2 p-2 border hover:bg-black-7 transition cursor-pointer' />
               </Link>
               <Link href='https://github.com/Ashish1022' target={'_blank'}>
-                <Image src='/github.png' alt='twitter' width={50} height={50} className='rounded-full bg-black-2 aspect-square ml-2 p-2 border hover:bg-black-7 transition cursor-pointer' />
+                <Image src='/github.svg' alt='twitter' width={50} height={50} className='rounded-full bg-black-2 aspect-square ml-2 p-2 border hover:bg-black-7 transition cursor-pointer' />
               </Link>
             </div>
             <Button className='bg-black-6 w-full rounded-2xl mt-6'>
