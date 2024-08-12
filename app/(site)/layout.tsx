@@ -33,7 +33,9 @@ export default function RootLayout({
         <div className="">
             <main className="mt-4">
                 <div className="lg:hidden">
-                    Coming Soon
+                    <div className="flex items-center justify-center">
+                        
+                    </div>
                 </div>
                 <div className="max-lg:hidden">
                     <Navbar />

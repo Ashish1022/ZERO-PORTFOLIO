@@ -19,7 +19,6 @@ export default function RootLayout({
     <html lang="en" className="overflow-y-scroll no-scrollbar">
       <body className={`${inter.className} bg-black-7`}>
         {children}
-
       </body>
     </html>
   );

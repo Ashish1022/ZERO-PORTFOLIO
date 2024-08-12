@@ -38,7 +38,7 @@ const About = () => {
             <p className='font-bold tracking-wide font-mono text-18 text-white-2'>Frontend Developer</p>
             <p className='font-normal text-white-3'>Personal project</p>
             <p className='font-normal text-white-3 mt-4 py-1'>2023 - Present</p>
-            <p className='font-bold tracking-wide font-mono text-18 text-white-2'>SaaS based applications</p>
+            <p className='font-bold tracking-wide font-mono text-18 text-white-2'>SaaS/BaaS based applications</p>
             <p className='font-normal text-white-3'>Personal project</p>
           </div>
           <div className='p-4 w-[50%] relative bg-gradient-to-r from-black-2/80 to-black-2/40 rounded-2xl'>
@@ -57,7 +57,7 @@ const About = () => {
               <Link href='https://discord.gg/63sd6r2N88' className='cursor-pointer' target={'_blank'}>
                 <Image src='/discord.svg' alt='insta' width={66} height={66} className='aspect-square rounded-full bg-black-2 border hover:bg-gray-1/70 transition p-3' />
               </Link>
-              <Link href='https://www.instagram.com/ashishhh2210' className='cursor-pointer' target={'_blank'}>
+              <Link href='https://www.instagram.com/ashishhh2210?igsh=MWR1NHBxZmZ1MGY5OQ==' className='cursor-pointer' target={'_blank'}>
                 <Image src='/instagram.svg' alt='insta' width={66} height={66} className='aspect-square bg-black-2 border hover:bg-gray-1/70 transition p-4 rounded-2xl' />
               </Link>
 

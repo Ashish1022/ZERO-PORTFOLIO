@@ -56,10 +56,10 @@ const Home = () => {
           
           <div className='p-4 w-[25%] relative bg-gradient-to-r from-black-2/80 to-black-2/40 rounded-2xl'>
             <div className='flex justify-evenly bg-gradient-to-l from-[#000000] rounded-3xl p-5 gap-8'>
-              <Link href='https://www.instagram.com/ashishhh2210' className='cursor-pointer' target={'_blank'}>
+              <Link href='https://www.instagram.com/ashishhh2210?igsh=MWR1NHBxZmZ1MGY5OQ==' className='cursor-pointer' target={'_blank'}>
                 <Image src='/instagram.svg' alt='insta' width={66} height={66} className='aspect-square bg-black-2 border hover:bg-gray-1/70 transition p-4 rounded-2xl' />
               </Link>
-              <Link href='https://www.instagram.com/ashishhh2210' className='cursor-pointer' target={'_blank'}>
+              <Link href='https://www.instagram.com/ashishhh2210?igsh=MWR1NHBxZmZ1MGY5OQ==' className='cursor-pointer' target={'_blank'}>
                 <Image src='/twitter.svg' alt='insta' width={66} height={66} className='aspect-square rounded-full bg-black-2 border hover:bg-gray-1/70 transition' />
               </Link>
 
