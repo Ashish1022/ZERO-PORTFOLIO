@@ -1,12 +1,14 @@
+
 import { projects } from '@/constants'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const page = ({ params }: { params: { projectId: string } }) => {
   return (
     <div className='mt-4 scroll-smooth'>
       <div className='mx-32 py-6'>
-        {projects.map(({ id, description, techStack, thumbnail, name, year, service, methodology }) => {
+        {projects.map(({ id, description, techStack, thumbnail, name, year, service, methodology, link }) => {
           return (
             <>
               {id === params.projectId ? (
@@ -54,6 +56,9 @@ const page = ({ params }: { params: { projectId: string } }) => {
                           <Image src='/star.png' alt='star' width={40} height={40} />
                         </div>
                         <p>by <b className='tracking-wider underline underline-offset-8'>Ashish Jadhav.</b></p>
+                      <Link href={`https://${link}`} target={'_blank'} className='absolute right-3'>
+                        <span className='text-white-1 bg-black-6 rounded-2xl p-4 font-bold'>Live Demo</span>
+                      </Link>
                       </div>
                     </div>
                   </div>
