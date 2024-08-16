@@ -30,6 +30,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from '@/components/ui/textarea'
 import Link from 'next/link'
 
+import {motion} from 'framer-motion'
+
 
 const Contact = () => {
 
@@ -66,8 +68,8 @@ const Contact = () => {
 
   return (
     <div className='mt-4'>
-      <div className='mx-32 py-6 flex gap-4'>
-        <div className='w-[35%] bg-gradient-to-r from-black-1/40 to-black-1/70 rounded-2xl p-4'>
+      <div className='mx-32 py-6 max-md:mx-2 flex gap-4 max-md:flex-col'>
+        <motion.div className='md:w-[35%] bg-gradient-to-r from-black-1/40 to-black-1/70 rounded-2xl p-4' initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.6 }}>
           <h1 className='font-bold text-white-2 mb-16'>CONTACT INFO.</h1>
           <div className='flex flex-col gap-16'>
             <ContactBox image='/mail.png' name='MAIL US' info1='ashishjadhav9900@gmail.com' />
@@ -79,15 +81,15 @@ const Contact = () => {
             <Link href='https://www.instagram.com/ashishhh2210?igsh=MWR1NHBxZmZ1MGY5OQ==' className='cursor-pointer' target={'_blank'}>
               <Image src='/instagram.svg' alt='insta' width={66} height={66} className='aspect-square bg-black-2 border hover:bg-gray-1/70 transition p-3 rounded-2xl' />
             </Link>
-            <Link href='https://www.instagram.com/ashishhh2210?igsh=MWR1NHBxZmZ1MGY5OQ==' className='cursor-pointer' target={'_blank'}>
+            <Link href='https://x.com/ashishhh2210' className='cursor-pointer' target={'_blank'}>
               <Image src='/twitter.svg' alt='insta' width={66} height={66} className='aspect-square rounded-full bg-black-2 border hover:bg-gray-1/70 transition' />
             </Link>
             <Link href='https://discord.gg/63sd6r2N88' className='cursor-pointer' target={'_blank'}>
               <Image src='/discord.svg' alt='insta' width={66} height={66} className='aspect-square rounded-full bg-black-2 border hover:bg-gray-1/70 transition p-3' />
             </Link>
           </div>
-        </div>
-        <div className='w-[65%] bg-gradient-to-r from-black-1/40 to-black-1/70 rounded-2xl p-8'>
+        </motion.div>
+        <motion.div className='md:w-[65%] bg-gradient-to-r from-black-1/40 to-black-1/70 rounded-2xl p-8' initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.6 }}>
           <h1 className='font-extrabold text-[42px]'>Let's Work <span className='text-blue-600'>together.</span></h1>
           <div className='mt-8 flex flex-col justify-center'>
             <Form {...form}>
@@ -144,7 +146,7 @@ const Contact = () => {
               </form>
             </Form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   )

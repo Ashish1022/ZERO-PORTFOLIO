@@ -11,8 +11,8 @@ const Credentials = () => {
 
   return (
     <div className='mt-4 scroll-smooth'>
-      <div className='mx-32 py-6 gap-24 flex'>
-        <div className='w-[30%] p-6 bg-black-3 rounded-2xl sticky h-fit top-[6px]'>
+      <div className='mx-32 py-6 max-md:mx-4 gap-24 flex max-md:flex-col'>
+        <div className='md:w-[30%] p-6 bg-black-3 rounded-2xl md:sticky h-fit top-[6px]'>
           <Image src='/ashish4.jpeg' alt='ashish' width={300} height={300} className='rounded-2xl shadow-2xl' />
           <div className='mt-10'>
             <h1 className='font-extrabold text-[28px] text-center'>Ashish Jadhav.</h1>
@@ -21,7 +21,7 @@ const Credentials = () => {
               <Link href='https://www.instagram.com/ashishhh2210?igsh=MWR1NHBxZmZ1MGY5OQ==' target={'_blank'}>
                 <Image src='/instagram.svg' alt='twitter' width={50} height={50} className='aspect-square bg-black-2 border mr-2 hover:bg-black-7 transition p-3 rounded-2xl' />
               </Link>
-              <Link href='https://www.instagram.com/ashishhh2210?igsh=MWR1NHBxZmZ1MGY5OQ==' target={'_blank'}>
+              <Link href='https://x.com/ashishhh2210' target={'_blank'}>
                 <Image src='/twitter.svg' alt='twitter' width={50} height={50} className='rounded-full bg-black-2 aspect-square mx-2 p-1 border hover:bg-black-7 transition cursor-pointer' />
               </Link>
               <Link href='https://discord.gg/63sd6r2N88' target={'_blank'}>
@@ -36,7 +36,7 @@ const Credentials = () => {
             </Button>
           </div>
         </div>
-        <div className='w-[70%] flex flex-col gap-8'>
+        <div className='md:w-[70%] flex flex-col gap-8'>
           <div>
             <h1 className='text-white-1 text-24 font-bold mb-10 font-mono'>About Me.</h1>
             <p className='text-white-2 font-normal mb-4'>I'm a passionate tech enthusiast with a relentless curiosity for the latest advancements in technology. From groundbreaking gadgets and innovative software to emerging trends in artificial intelligence and cybersecurity, I'm always on the cutting edge of what's new and next. My journey in tech is driven by a love for problem-solving and a desire to understand how things work behind the scenes.</p>
