@@ -11,8 +11,10 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import { motion } from 'framer-motion'
 
+
 const Home = () => {
   const router = useRouter();
+
   return (
     <div className="mt-4">
       <div className='flex flex-col mx-32 py-6 gap-4 max-md:mx-2'>

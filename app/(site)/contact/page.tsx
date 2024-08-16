@@ -30,13 +30,22 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from '@/components/ui/textarea'
 import Link from 'next/link'
 
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useMutation } from 'convex/react'
+import { api } from '@/convex/_generated/api'
+
+import { Loader } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+
+import { useToast } from '@/components/ui/use-toast'
 
 
 const Contact = () => {
 
-  const [result, setResult] = useState<Record<string, string>>({});
-  const [loading, setLoading] = useState<boolean>();
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const getClient = useMutation(api.person.getClient);
+  const {toast} = useToast();
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -49,21 +58,23 @@ const Contact = () => {
   })
 
 
-  async function onSubmit(e: z.infer<typeof formSchema>) {
-    e:JSON.stringify({
-      name:e.name,
-      email:e.email,
-      subject:e.subject,
-      message:e.message,
-    })
-    setLoading(true)
-    fetch('/api/emails',{
-      method:'POST'
-    })
-    .then(response=>response.json())
-    .then(data => setResult(data))
-    .catch(error => setResult(error))
-    .finally(()=>setLoading(false))
+  async function onSubmit(data: z.infer<typeof formSchema>) {
+    try {
+      setIsSubmitting(true);
+      const client = await getClient({
+        name: data.name,
+        email: data.email,
+        subject: data.subject,
+        message: data.message
+      })
+      router.push('/');
+      alert("Message sent, Thank You!!!")
+      setIsSubmitting(false)
+    } catch (error) {
+      console.log(error)
+      toast({ title: 'Error', variant: 'destructive' })
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -142,7 +153,16 @@ const Contact = () => {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className='bg-black-1 rounded-xl p-8 hover:bg-white-2 hover:text-black-7 transition font-extrabold tracking-wider'>Send message</Button>
+                <Button type="submit" className='bg-black-1 rounded-xl p-8 hover:bg-white-2 hover:text-black-7 transition font-extrabold tracking-wider'>
+                  {isSubmitting ? (
+                    <>
+                      Sending
+                      <Loader size={20} className="animate-spin ml-3" />
+                    </>
+                  ) : (
+                    "Send message"
+                  )}
+                </Button>
               </form>
             </Form>
           </div>

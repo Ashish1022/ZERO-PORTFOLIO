@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
+import { ConvexClientProvider } from "@/Providers/ConvexClientProvider";
 
 
 const inter = Manrope({ subsets: ["latin"] });
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="overflow-y-scroll no-scrollbar">
       <body className={`${inter.className} bg-black-7`}>
-        {children}
+        <ConvexClientProvider>
+          {children}
           {/* <h1 className="text-[28px] font-extrabold tracking-widest font-mono flex items-center justify-center">Under Maintainence</h1> */}
+        </ConvexClientProvider>
       </body>
     </html>
   );
