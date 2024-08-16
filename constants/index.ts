@@ -31,7 +31,7 @@ export const projects = [
         year:'2023',
         service:'Saas based WebApp',
         methodology:'This website is a modern web application leveraging Next.js for fast, server-rendered React pages. It uses Convex for scalable backend services and real-time data management. Clerk handles user authentication and profile management seamlessly, while Stripe processes payments and manages subscriptions efficiently. Explore a rich collection of stories where you can read for free and listen to narrated versions by purchasing them. Enjoy an engaging storytelling experience with seamless access to both written and audio content, offering an immersive way to enjoy your favorite tales.',
-        link:'zero-story.vercel.app'
+        link:'ashishstory.vercel.app'
     },
     {
         id:'portfolio',
