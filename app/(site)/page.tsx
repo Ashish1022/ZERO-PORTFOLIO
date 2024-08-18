@@ -32,7 +32,7 @@ const Home = () => {
         </div>
 
         <div className='flex gap-4'>
-          <Box className='md:w-[25%] max-md:w-[50%] md:h-[90%]' image='/cv.png' title='Download.' subtitle='MY CV' route='/pdf/ashish.pdf' />
+          <Box className='md:w-[25%] max-md:w-[50%] md:h-[90%]' image='/cv.png' title='Download.' subtitle='MY CV' route='/pdf/Ashish Jadhav Resume.pdf' />
           <motion.div className='p-4 w-[50%] bg-gradient-to-r from-black-2/80 to-black-2/40 rounded-2xl relative max-md:hidden' initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.6 }}>
             <div className='flex gap-5 justify-evenly mt-12'>
               <Link href='/' className='hover:scale-150 transition cursor-crosshair'>
