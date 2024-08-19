@@ -62,8 +62,8 @@ const Home = () => {
               <Link href='https://www.instagram.com/ashishhh2210?igsh=MWR1NHBxZmZ1MGY5OQ==' className='cursor-pointer' target={'_blank'}>
                 <Image src='/instagram.svg' alt='insta' width={66} height={66} className='aspect-square bg-black-1 border hover:bg-gray-1/50 transition md:p-4 rounded-2xl' />
               </Link>
-              <Link href='https://x.com/ashishhh2210' className='cursor-pointer' target={'_blank'}>
-                <Image src='/twitter.svg' alt='insta' width={66} height={66} className='aspect-square rounded-full bg-black-2 border hover:bg-gray-1/70 transition' />
+              <Link href='https://www.linkedin.com/in/ashish-jadhav-zero' className='cursor-pointer' target={'_blank'}>
+                <Image src='/linkedin.svg' alt='insta' width={66} height={66} className='aspect-square rounded-full bg-black-2 border hover:bg-gray-1/70 transition' />
               </Link>
 
             </div>
