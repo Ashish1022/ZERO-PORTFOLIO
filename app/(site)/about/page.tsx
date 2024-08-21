@@ -15,7 +15,7 @@ const About = () => {
       <div className='flex flex-col mx-32 max-md:mx-2 py-6 gap-4'>
         <div className='flex gap-4 max-md:flex-col'>
           <motion.div className='pb-4 pt-4 w-[30%] max-md:w-full flex justify-center items-center bg-gradient-to-r from-black-2/80 to-black-2/90 rounded-2xl relative max-md:border-b-3 max-md:hidden' initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.6 }}>
-            <Image src='/about.jpeg' alt='about' width={300} height={300} className='rounded-3xl aspect-square' />
+            <Image src='/profile.png' alt='about' width={300} height={300} className='rounded-3xl aspect-square' />
           </motion.div>
           <motion.div className='flex flex-col w-[70%] max-md:w-full items-center' initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.6 }}>
             <div className='flex gap-5 p-2 max-md:justify-center'>
