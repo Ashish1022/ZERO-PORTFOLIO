@@ -13,7 +13,7 @@ const Credentials = () => {
     <div className='mt-4 scroll-smooth'>
       <div className='mx-32 py-6 max-md:mx-4 gap-24 flex max-md:flex-col'>
         <motion.div className='md:w-[30%] p-6 bg-black-3 rounded-2xl md:sticky h-fit top-[6px]' initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.6 }}>
-          <Image src='/ashish4.jpeg' alt='ashish' width={300} height={300} className='rounded-2xl shadow-2xl' />
+          <Image src='/profile.png' alt='ashish' width={300} height={300} className='rounded-2xl shadow-2xl' />
           <div className='mt-10'>
             <h1 className='font-extrabold text-[28px] text-center'>Ashish Jadhav.</h1>
             <h2 className='font-extrabold text-[18px] text-white-3 text-center'>@ashishhh2210</h2>

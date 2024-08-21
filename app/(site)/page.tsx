@@ -19,7 +19,7 @@ const Home = () => {
     <div className="mt-4">
       <div className='flex flex-col mx-32 py-6 gap-4 max-md:mx-2'>
         <div className='flex gap-4 max-md:flex-col'>
-          <BoxWithImage className='w-[50%] h-full' image='/ashish4.jpeg' />
+          <BoxWithImage className='w-[50%] h-full' image='/profile2.png' />
           <div className='w-[50%] h-fit flex flex-col gap-4 max-md:w-full' >
             <motion.div className='p-4 w-[100%] bg-gradient-to-r from-black-2/80 to-black-2/40 rounded-2xl' initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.6 }}>
               <p className='text-white-2 tracking-widest'><b className='text-white-1 text-16 tracking-wider'>Freelance Work</b>&nbsp;: Available as a freelancer</p>

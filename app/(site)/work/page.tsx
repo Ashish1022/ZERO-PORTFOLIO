@@ -37,7 +37,7 @@ const Work = () => {
               <WorkBox image='/project3.png' name='ZERO | INTELLIGENCE' type='WebApp / AI-ML' projectId='intelligence' />
               <WorkBox image='/project4.png' name='ZERO | SOCIALS' type='WebApp' projectId='social' />
               <WorkBox image='/project5.png' name='ZERO | AUTHENTICATE' type='WebApp' projectId='authenticate' />
-              <WorkBox image='/project2.png' name='ZERO | PORTFOLIO' type='WebApp' projectId='portfolio' />
+              <WorkBox image='/project6.png' name='ZERO | CAMPUS' type='WebApp' projectId='campus' />
             </div>
           </div>
         </div>

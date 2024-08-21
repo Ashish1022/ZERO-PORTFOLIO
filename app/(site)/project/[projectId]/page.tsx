@@ -4,7 +4,7 @@ import { projects } from '@/constants'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const page = ({ params }: { params: { projectId: string } }) => {
   return (
@@ -65,9 +65,17 @@ const page = ({ params }: { params: { projectId: string } }) => {
                           <Image src='/star.png' alt='star' width={40} height={40} />
                         </div>
                         <p>by <b className='tracking-wider underline underline-offset-8'>Ashish Jadhav.</b></p>
-                        <Link href={`https://${link}`} target={'_blank'} className='absolute right-3 max-md:hidden'>
-                          <span className='text-white-1 bg-black-6 rounded-2xl p-4 font-bold'>Live Demo</span>
-                        </Link>
+                        <div className='absolute right-3 max-md:hidden'>
+                          {link ? (
+                            <span className='text-white-1 bg-black-6 rounded-2xl p-4 font-bold'>
+                              <Link href={`https://${link}`} target={'_blank'}>
+                                <span>Live Demo</span>
+                              </Link>
+                            </span>
+                          ) : (
+                            <></>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </motion.div>
