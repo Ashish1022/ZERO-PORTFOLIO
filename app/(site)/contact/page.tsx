@@ -84,7 +84,7 @@ const Contact = () => {
           <h1 className='font-bold text-white-2 mb-16'>CONTACT INFO.</h1>
           <div className='flex flex-col gap-16'>
             <ContactBox image='/mail.png' name='MAIL US' info1='ashishjadhav9900@gmail.com' />
-            <ContactBox image='/phone.png' name='CONTACT US' info1='+91 7400106790' info2='+91 9324955840' />
+            <ContactBox image='/phone.png' name='CONTACT US' info1='+91 7400106790' />
             <ContactBox image='/location.png' name='LOCATION' info1='Mumbai, Maharashtra' info2='India' />
           </div>
           <h1 className='font-bold text-white-2 mt-16 mb-8'>SOCIAL INFO.</h1>
