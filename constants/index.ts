@@ -60,8 +60,8 @@ export const projects = [
         thumbnail:'/projects/campus.png',
         techStack:'ZERO | CAMPUS is a dynamic campus management system developed with Next.js, designed to streamline and enhance the administrative operations of educational institutions. The platform offers a comprehensive suite of features including student enrollment, course management, grade tracking, and event scheduling.',
         description:'A web-based application developed using Next.js to streamline campus operations. It features user management, course scheduling, student enrollment, attendance tracking, grading, and communication tools. The system offers a modern, responsive interface and leverages Next.js.',
-        service:'Python Software to Identify Gestures',
-        year:'2023',
+        service:'An SAAS based WebApp',
+        year:'2024',
         methodology:'User Management, Course Management, Student Enrollment, Timetable and Scheduling, Attendance Tracking, Grading and Reporting, Communication. This Campus Management System enhances administrative efficiency, provides a user-friendly interface for all stakeholders, and leverages the latest web technologies to ensure a scalable and robust solution for managing campus operations.',
     },
 ]
