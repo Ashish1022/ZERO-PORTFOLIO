@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { ConvexClientProvider } from "@/Providers/ConvexClientProvider";
+import { Analytics } from "@vercel/analytics/react"
 
 
 const inter = Manrope({ subsets: ["latin"] });
@@ -22,6 +23,7 @@ export default function RootLayout({
         <ConvexClientProvider>
           {children}
           {/* <h1 className="text-[28px] font-extrabold tracking-widest font-mono flex items-center justify-center">Under Maintainence</h1> */}
+          <Analytics/>
         </ConvexClientProvider>
       </body>
     </html>
