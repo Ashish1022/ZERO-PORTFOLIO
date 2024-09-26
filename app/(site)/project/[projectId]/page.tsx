@@ -46,7 +46,7 @@ const page = ({ params }: { params: { projectId: string } }) => {
                         <p className='text-white-2 font-extrabold text-[20px]'>{year}</p>
                       </div>
                       <div>
-                        <h1 className='text-white-3 font-bold text-[16px]'>Serives</h1>
+                        <h1 className='text-white-3 font-bold text-[16px]'>Services</h1>
                         <p className='text-white-2 font-extrabold text-[20px]'>{service}</p>
                       </div>
                       <div>

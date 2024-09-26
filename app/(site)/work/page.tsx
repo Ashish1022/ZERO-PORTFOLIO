@@ -35,7 +35,7 @@ const Work = () => {
             </motion.div>
             <div className='grid grid-cols-2 gap-4 max-md:grid-cols-1'>
               <WorkBox image='/project3.png' name='ZERO | INTELLIGENCE' type='WebApp / AI-ML' projectId='intelligence' />
-              <WorkBox image='/project4.png' name='ZERO | SOCIALS' type='WebApp' projectId='social' />
+              <WorkBox image='/project7.png' name='ZERO | DEPLOY' type='WebApp' projectId='deploy' />
               <WorkBox image='/project5.png' name='ZERO | AUTHENTICATE' type='WebApp' projectId='authenticate' />
               <WorkBox image='/project6.png' name='ZERO | CAMPUS' type='WebApp' projectId='campus' />
             </div>
