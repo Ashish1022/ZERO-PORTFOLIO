@@ -68,7 +68,7 @@ const Contact = () => {
         message: data.message
       })
       router.push('/');
-      alert("Message sent, Thank You!!!")
+      toast({title:"Thank you!!", variant: "default"})
       setIsSubmitting(false)
     } catch (error) {
       console.log(error)

@@ -4,6 +4,7 @@ import "./globals.css";
 import { ConvexClientProvider } from "@/Providers/ConvexClientProvider";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Toaster } from "@/components/ui/toaster";
 
 
 const inter = Manrope({ subsets: ["latin"] });
@@ -26,6 +27,7 @@ export default function RootLayout({
           {/* <h1 className="text-[28px] font-extrabold tracking-widest font-mono flex items-center justify-center">Under Maintainence</h1> */}
           <Analytics/>
           <SpeedInsights />
+          <Toaster/>
         </ConvexClientProvider>
       </body>
     </html>
