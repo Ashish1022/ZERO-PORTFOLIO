@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import { ConvexClientProvider } from "@/Providers/ConvexClientProvider";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 const inter = Manrope({ subsets: ["latin"] });
@@ -24,6 +25,7 @@ export default function RootLayout({
           {children}
           {/* <h1 className="text-[28px] font-extrabold tracking-widest font-mono flex items-center justify-center">Under Maintainence</h1> */}
           <Analytics/>
+          <SpeedInsights />
         </ConvexClientProvider>
       </body>
     </html>
