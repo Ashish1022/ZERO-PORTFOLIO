@@ -13,6 +13,15 @@ const inter = Manrope({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ZERO | PORTFOLIO",
   description: "Developed and managed by ZERO",
+  keywords: ["Portfolio, Developer, Web Developer, UI/UX, JavaScript, React, Next.js, Designer"],
+  openGraph:{
+    type: "profile",
+    title: "Ashish | Portfolio",
+    description: "Ashish | Portfolio.",
+    url: "https://ashishport.vercel.app",
+    siteName: "Ashish",
+    locale: "en_IN",
+  }
 };
 
 export default function RootLayout({
@@ -22,27 +31,6 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <Head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="author" content="Ashish Jadhav" />
-        <meta name="robots" content="index, follow" />
-        <meta name="keywords" content="Portfolio, Developer, Web Developer, UI/UX, JavaScript, React, Next.js, Designer" />
-        <meta name="description" content="Welcome to the portfolio of Ashish Jadhav, a passionate web developer specializing in front-end development and UI/UX design." />
-        <title>[Your Name] | Portfolio</title>
-
-        {/* Open Graph Tags */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Ashish | Portfolio" />
-        <meta property="og:description" content="Explore the portfolio of Ashish, showcasing my skills in web development and UI/UX design." />
-        <meta property="og:image" content="https://ashishport.vercel.app" />
-        <meta property="og:url" content="https://ashishport.vercel.app" />
-        <meta property="og:site_name" content="Ashish Portfolio" />
-        <meta property="og:locale" content="en_US" />
-
-      </Head>
-      {/* Rest of your page content */}
       <html lang="en" className="overflow-y-scroll no-scrollbar">
         <body className={`${inter.className} bg-black-7`}>
           <ConvexClientProvider>
