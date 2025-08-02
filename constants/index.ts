@@ -17,7 +17,7 @@ export const navbarLinks = [
     },
     {
         route: '/contact',
-        label: 'Contact Us'
+        label: 'Contact'
     },
 ]
 

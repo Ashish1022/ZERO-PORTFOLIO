@@ -1,5 +1,3 @@
-"use client"
-
 import type React from "react"
 
 import Footer from "@/components/Footer"
@@ -32,8 +30,8 @@ export default function RootLayout({
         {/* Desktop Navbar */}
         <Navbar />
 
-        {/* Main Content */}
-        {children}
+        {/* Main Content with proper spacing for fixed navbar */}
+        <div className="pt-24 max-md:pt-0">{children}</div>
 
         {/* Footer */}
         <Footer />

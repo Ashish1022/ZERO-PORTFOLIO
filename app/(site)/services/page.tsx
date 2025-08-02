@@ -249,33 +249,6 @@ const Services = () => {
               />
             </motion.div>
           </motion.div>
-
-          {/* Stats Section */}
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {[
-              { number: "50+", label: "Projects Completed" },
-              { number: "4+", label: "Years Experience" },
-              { number: "100%", label: "Client Satisfaction" },
-              { number: "24/7", label: "Support Available" },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                className="bg-gradient-to-br from-black-6 to-black-2 rounded-2xl p-6 text-center shadow-xl"
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <h3 className="text-2xl md:text-3xl font-bold text-white-1 mb-2">{stat.number}</h3>
-                <p className="text-white-3 text-sm">{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.div>
         </motion.div>
       </div>
     </div>
