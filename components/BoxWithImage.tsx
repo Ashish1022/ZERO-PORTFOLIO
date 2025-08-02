@@ -18,9 +18,9 @@ const BoxWithImage = ({ className, image }: { className?: string; image?: string
                     </div>
                 )}
                 <div className='p-4 md:ml-2 flex flex-col justify-center gap-2 '>
-                    <p className='text-18 font-normal text-white-2 tracking-wide'>Tech Enthusiast</p>
+                    <p className='text-18 font-normal text-white-2 tracking-wide'>Full Stack Web Developer</p>
                     <h1 className='text-24 font-extrabold text-white-1 font-serif tracking-widest'>Ashish Jadhav.</h1>
-                    <p className='text-16 text-white-2 font-bold tracking-wider'>Tech designer based<br /> in Mumbai.</p>
+                    <p className='text-16 text-white-2 font-bold tracking-wider'>Crafting clean code<br /> with creative touch.</p>
                 </div>
             </div>
             <Button className='absolute right-0 bottom-5' onClick={() => router.push('/about')}>
