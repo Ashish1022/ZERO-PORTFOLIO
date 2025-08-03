@@ -10,7 +10,7 @@ import {
   Play,
   Pause,
   ExternalLink,
-  Code,
+  Github,
   ArrowRight,
 } from "lucide-react"
 
@@ -44,7 +44,7 @@ const Page = ({ params }: { params: { projectId: string } }) => {
     return <div className="text-white-2 text-center mt-20">Project not found</div>
   }
 
-  const { description, techStack, name, year, link, videoUrl, showcaseImages } = currentProject
+  const { description, techStack, name, year, link, githubUrl, videoUrl, showcaseImages } = currentProject
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black-1 via-black-2 to-black-1">
@@ -90,14 +90,16 @@ const Page = ({ params }: { params: { projectId: string } }) => {
             ))}
           </motion.div>
 
-          {link && (
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
+          {/* Action Buttons */}
+          <motion.div
+            className="flex justify-center gap-4 flex-wrap"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            {link && (
               <Link
-                href={`https://${link}`}
+                href={link.startsWith('http') ? link : `https://${link}`}
                 target="_blank"
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-white-1 to-white-3 text-black-1 px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-2xl"
               >
@@ -105,8 +107,18 @@ const Page = ({ params }: { params: { projectId: string } }) => {
                 View Live
                 <ArrowRight className="w-5 h-5" />
               </Link>
-            </motion.div>
-          )}
+            )}
+            
+            <Link
+              href={githubUrl || `https://github.com/yourusername/${params.projectId}`}
+              target="_blank"
+              className="inline-flex items-center gap-3 bg-black-6/50 hover:bg-black-6/70 text-white-1 px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all shadow-2xl border border-white-3/20"
+            >
+              <Github className="w-5 h-5" />
+              View Code
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </motion.section>
 
