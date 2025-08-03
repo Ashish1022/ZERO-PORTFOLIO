@@ -331,7 +331,7 @@ const Home = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                Let's Create
+                Let&apos;s Create
                 <br />
                 Something{" "}
                 <span className="text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text">
@@ -346,7 +346,7 @@ const Home = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                Ready to bring your ideas to life? Let's start a conversation and build the future together with
+                Ready to bring your ideas to life? Let&apos;s start a conversation and build the future together with
                 cutting-edge technology and creative solutions.
               </motion.p>
 

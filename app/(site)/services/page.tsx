@@ -220,14 +220,14 @@ const Services = () => {
 
               <div className="relative z-10">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-white-1 mb-4 leading-tight">
-                  Let's Create
+                  Let&apos;s Create
                   <br />
                   Something{" "}
                   <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
                     Amazing
                   </span>
                 </h2>
-                <p className="text-white-2 mb-6">Ready to bring your ideas to life? Let's collaborate!</p>
+                <p className="text-white-2 mb-6">Ready to bring your ideas to life? Let&apos;s collaborate!</p>
 
                 <Button className="bg-gradient-to-r from-white-1 to-white-3 text-black-1 hover:scale-105 transition-all duration-300 font-semibold px-6 py-3 rounded-full shadow-lg">
                   <span>Start Project</span>

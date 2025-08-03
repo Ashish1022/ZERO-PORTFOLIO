@@ -169,13 +169,13 @@ const Credentials = () => {
 
               <div className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 shadow-2xl mb-8">
                 <p className="text-white-2 text-lg leading-relaxed mb-6">
-                  I'm a passionate tech enthusiast with a relentless curiosity for the latest advancements in
+                  I&apos;m a passionate tech enthusiast with a relentless curiosity for the latest advancements in
                   technology. From groundbreaking gadgets and innovative software to emerging trends in artificial
-                  intelligence and cybersecurity, I'm always on the cutting edge of what's new and next.
+                  intelligence and cybersecurity, I&apos;m always on the cutting edge of what&apos;s new and next.
                 </p>
                 <p className="text-white-2 text-lg leading-relaxed mb-6">
                   My journey in tech is driven by a love for problem-solving and a desire to understand how things work
-                  behind the scenes. Whether it's building scalable web applications, exploring blockchain technology,
+                  behind the scenes. Whether it&apos;s building scalable web applications, exploring blockchain technology,
                   or diving into machine learning, I thrive on discovering and sharing insights about the technologies
                   that shape our future.
                 </p>

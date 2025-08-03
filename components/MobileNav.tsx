@@ -23,7 +23,6 @@ const MobileNav = () => {
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
-            {/* Hover Glow */}
             <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
             <AnimatePresence mode="wait">
@@ -157,7 +156,7 @@ const MobileNav = () => {
                     >
                       <MessageCircle className="w-5 h-5" />
                     </motion.div>
-                    <span>Let's Talk</span>
+                    <span>Let&apos;s Talk</span>
                   </div>
 
                   {/* Shimmer Effect */}
@@ -168,25 +167,6 @@ const MobileNav = () => {
                   />
                 </Button>
               </SheetClose>
-
-              {/* Quick Stats */}
-              <motion.div
-                className="grid grid-cols-3 gap-3 mt-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1 }}
-              >
-                {[
-                  { label: "Projects", value: "50+" },
-                  { label: "Experience", value: "4+ Yrs" },
-                  { label: "Clients", value: "100%" },
-                ].map((stat, index) => (
-                  <div key={index} className="text-center p-2 bg-black-6/30 rounded-lg">
-                    <p className="text-white-1 font-bold text-sm">{stat.value}</p>
-                    <p className="text-white-3 text-xs">{stat.label}</p>
-                  </div>
-                ))}
-              </motion.div>
             </motion.div>
           </div>
         </SheetContent>

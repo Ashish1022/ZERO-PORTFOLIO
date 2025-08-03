@@ -128,11 +128,10 @@ const Work = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedFilter(category)}
-                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                    selectedFilter === category
+                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${selectedFilter === category
                       ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
                       : "bg-black-6/50 text-white-3 hover:text-white-1 hover:bg-black-6"
-                  }`}
+                    }`}
                 >
                   {category}
                 </button>
@@ -271,7 +270,7 @@ const Work = () => {
                   </span>
                 </h2>
                 <p className="text-white-2 mb-6 text-lg">
-                  Let's collaborate and bring your vision to life with cutting-edge technology and creative solutions.
+                  Let&apos;s collaborate and bring your vision to life with cutting-edge technology and creative solutions.
                 </p>
 
                 <Button className="bg-gradient-to-r from-white-1 to-white-3 text-black-1 hover:scale-105 transition-all duration-300 font-semibold px-6 py-3 rounded-full shadow-lg">
@@ -293,36 +292,6 @@ const Work = () => {
                 route="/credentials"
               />
             </motion.div>
-          </motion.div>
-
-          {/* Stats Section */}
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {[
-              { number: "6+", label: "Projects Completed", icon: Code },
-              { number: "4+", label: "Years Experience", icon: Zap },
-              { number: "100%", label: "Client Satisfaction", icon: Star },
-              { number: "24/7", label: "Support Available", icon: ExternalLink },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                className="bg-gradient-to-br from-black-6 to-black-2 rounded-2xl p-6 text-center shadow-xl"
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="bg-gradient-to-r from-blue-400/20 to-purple-400/20 p-3 rounded-xl mx-auto w-fit mb-4">
-                  <stat.icon className="w-6 h-6 text-blue-400" />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white-1 mb-2">{stat.number}</h3>
-                <p className="text-white-3 text-sm">{stat.label}</p>
-              </motion.div>
-            ))}
           </motion.div>
         </motion.div>
       </div>

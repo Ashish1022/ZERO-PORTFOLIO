@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <motion.div
-      className="navbar pt-6 px-32 max-md:hidden fixed top-0 left-0 right-0 z-50"
+      className="navbar pt-6 px-32 max-md:hidden fixed top-6 left-0 right-0 z-50"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -39,7 +39,6 @@ const Navbar = () => {
         )}
         style={{ backgroundColor: `rgba(0, 0, 0, ${backgroundOpacity})` }}
       >
-        {/* Enhanced Logo */}
         <Link href="/" className="flex cursor-pointer items-center justify-center group">
           <motion.div className="flex items-center gap-3" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
             <motion.div
@@ -57,18 +56,17 @@ const Navbar = () => {
               </motion.div>
             </motion.div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col group-hover:items-start items-center transition-all duration-300">
               <h1 className="text-xl font-extrabold bg-gradient-to-r from-white-1 via-blue-300 to-white-3 bg-clip-text text-transparent group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">
                 ZERO | PORTFOLIO
               </h1>
-              <span className="text-xs text-white-3 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span className="text-xs text-white-3 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute group-hover:relative">
                 Full-Stack Developer
               </span>
             </div>
           </motion.div>
         </Link>
 
-        {/* Enhanced Navigation Links */}
         <div className="flex items-center gap-1">
           {navbarLinks.map(({ label, route }, index) => {
             const isActive = pathName === route || pathName.startsWith(`${route}/`)
@@ -85,7 +83,6 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  {/* Active Background */}
                   {isActive && (
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl"
@@ -94,15 +91,12 @@ const Navbar = () => {
                     />
                   )}
 
-                  {/* Hover Background */}
                   <motion.div className="absolute inset-0 bg-gradient-to-r from-white-1/5 to-white-3/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                  {/* Hover Glow Effect */}
                   <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                   <span className="relative z-10 text-base font-semibold">{label}</span>
 
-                  {/* Active Indicator */}
                   {isActive && (
                     <motion.div
                       className="absolute bottom-1 left-1/2 w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
@@ -117,7 +111,6 @@ const Navbar = () => {
           })}
         </div>
 
-        {/* Enhanced CTA Button */}
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -129,10 +122,8 @@ const Navbar = () => {
             className="relative bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
             onClick={() => router.push("/contact")}
           >
-            {/* Button Glow Effect */}
             <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-400/50 to-purple-400/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-            {/* Button Content */}
             <div className="relative z-10 flex items-center gap-2">
               <motion.div
                 animate={{ rotate: [0, 10, -10, 0] }}
@@ -140,9 +131,8 @@ const Navbar = () => {
               >
                 <MessageCircle className="w-4 h-4" />
               </motion.div>
-              <span>Let's Talk</span>
+              <span>Let&apos;s Talk</span>
 
-              {/* Hover Arrow */}
               <motion.div
                 className="overflow-hidden"
                 initial={{ width: 0 }}
@@ -153,7 +143,6 @@ const Navbar = () => {
               </motion.div>
             </div>
 
-            {/* Shimmer Effect */}
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 opacity-0 group-hover:opacity-100"
               animate={{ x: ["-100%", "100%"] }}
@@ -162,12 +151,6 @@ const Navbar = () => {
           </Button>
         </motion.div>
       </motion.nav>
-
-      {/* Scroll Progress Indicator */}
-      <motion.div
-        className="absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full origin-left"
-        style={{ scaleX: useTransform(scrollY, [0, 1000], [0, 1]) }}
-      />
     </motion.div>
   )
 }

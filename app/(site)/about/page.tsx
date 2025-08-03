@@ -332,14 +332,14 @@ const About = () => {
 
               <div className="relative z-10">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-white-1 mb-4 leading-tight">
-                  Let's Build
+                  Let&apos;s Build
                   <br />
                   Something{" "}
                   <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
                     Great
                   </span>
                 </h2>
-                <p className="text-white-2 mb-6">Ready to turn your ideas into reality? Let's collaborate!</p>
+                <p className="text-white-2 mb-6">Ready to turn your ideas into reality? Let&apos;s collaborate!</p>
 
                 <Button className="bg-gradient-to-r from-white-1 to-white-3 text-black-1 hover:scale-105 transition-all duration-300 font-semibold px-6 py-3 rounded-full shadow-lg">
                   <span>Get In Touch</span>
