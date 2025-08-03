@@ -147,7 +147,7 @@ const Contact = () => {
               <Star className="w-12 h-12 text-white-3 animate-pulse" />
             </div>
             <p className="text-white-2 text-lg md:text-xl max-w-3xl mx-auto">
-              Ready to bring your ideas to life? Let's start a conversation and create something amazing together.
+              Ready to bring your ideas to life? Let&apos;s start a conversation and create something amazing together.
             </p>
           </motion.div>
 
@@ -228,7 +228,7 @@ const Contact = () => {
             >
               <div className="mb-8">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-white-1 mb-4 leading-tight">
-                  Let's Create
+                  Let&apos;s Create
                   <br />
                   Something{" "}
                   <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
@@ -236,7 +236,7 @@ const Contact = () => {
                   </span>
                 </h2>
                 <p className="text-white-2 text-lg">
-                  Share your project details and let's discuss how we can bring your vision to life.
+                  Share your project details and let&apos;s discuss how we can bring your vision to life.
                 </p>
               </div>
 
