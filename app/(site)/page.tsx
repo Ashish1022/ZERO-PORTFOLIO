@@ -75,8 +75,8 @@ const Home = () => {
           <motion.div className="text-center mb-8" variants={itemVariants}>
             <motion.div
               className="flex justify-center items-center gap-4 mb-6"
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
+              initial={{ scale: 0, }}
+              animate={{ scale: 1, }}
               transition={{ duration: 1, type: "spring" }}
             >
               <motion.div
