@@ -21,6 +21,71 @@ export const navbarLinks = [
     },
 ]
 
+export const experiences = [
+    {
+        period: 'Sep 2026 - Present',
+        duration: '1 mo',
+        role: 'Founding Engineer',
+        type: 'Full-time',
+        company: 'GradGuide',
+        location: 'Mumbai, India',
+        description: 'Moved beyond maintaining the core CRM to independently building new products for the company.',
+        highlights: [
+            'Designed and shipped a job search platform for UK graduate roles — built the scraping and search pipeline end-to-end, from data collection to near real-time searchable listings.',
+            'Designed and launched an internal Leave Management System with multi-stage approval workflows and WhatsApp notifications, now used company-wide.',
+            'Built and deployed a WhatsApp bot for business intelligence on a cloud server, resolving dependency and stability issues to get it production-ready.'
+        ],
+        skills: ['Next.js', 'tRPC', 'Drizzle ORM', 'Web Scraping', 'Baileys', 'Redis', 'QStash', 'Cloud Deployment']
+    },
+    {
+        period: 'May 2026 - Aug 2026',
+        duration: '4 mos',
+        role: 'Software Engineer',
+        type: 'Full-time',
+        company: 'GradGuide',
+        location: 'Mumbai, India',
+        description: 'Converted to full-time and took full ownership of the CRM, having built it from the ground up and scaled it into a system relied on daily by sales, counseling, and admissions teams.',
+        highlights: [
+            'Scaled the platform to support 50,000+ concurrent leads at 99% uptime; wrote the SQL powering funnel and performance dashboards.',
+            'Built a reminder system for follow-ups and counselling sessions that fires exactly on schedule and survives deploys and restarts.',
+            'Introduced approval steps for postponing follow-ups and changing lead priority, and fixed role-based access issues affecting cross-team visibility.',
+            'Integrated click-to-call logging, WhatsApp messaging, and an AI assistant for analytics queries; diagnosed and resolved production incidents.'
+        ],
+        skills: ['PostgreSQL', 'SQL Analytics', 'tRPC', 'Drizzle ORM', 'WhatsApp API', 'Gemini AI', 'RBAC']
+    },
+    {
+        period: 'Dec 2025 - May 2026',
+        duration: '6 mos',
+        role: 'Tech Intern',
+        type: 'Internship',
+        company: 'GradGuide',
+        location: 'Mumbai, India',
+        description: 'Joined the company and learned full-stack development by contributing to the CRM from its earliest stages.',
+        highlights: [
+            'Helped design the Postgres schema and worked on a type-safe Next.js 16 app with a tRPC API layer, organized into 15 self-contained modules.',
+            'Wrote seed scripts to generate realistic leads and user data for development, testing, and demos without touching production.',
+            'Built core lead-tracking UI data tables, forms, and shareable URL-synced filters backed by an audit log recording every stage change.',
+            'Implemented optimistic UI updates so edits felt instant instead of waiting on server responses.'
+        ],
+        skills: ['Next.js 16', 'TypeScript', 'PostgreSQL', 'Drizzle ORM', 'TanStack Query', 'Optimistic UI']
+    },
+    {
+        period: '2022 - 2025',
+        duration: '3 yrs',
+        role: 'Full-Stack Developer',
+        type: 'Independent',
+        company: 'Personal & Freelance Projects',
+        location: 'Remote',
+        description: 'Built and shipped SaaS, DevOps, and e-commerce products end-to-end while studying Information Technology.',
+        highlights: [
+            'Shipped ZERO | HUB, a multi-vendor storefront SaaS with subdomain provisioning and Stripe/Razorpay payments.',
+            'Built ZERO | DEPLOY, a container deployment platform on AWS ECS with Kafka messaging and ClickHouse analytics.',
+            'Delivered client and community platforms including an e-commerce marketplace and the ITSA student association portal.'
+        ],
+        skills: ['Next.js', 'Node.js', 'Docker', 'AWS', 'Kafka', 'PostgreSQL', 'Stripe']
+    }
+]
+
 export const projects = [
     {
         id: 'zero-hub',

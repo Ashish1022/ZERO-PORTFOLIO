@@ -1,9 +1,19 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { User, GraduationCap, MapPin, Calendar, Award, Download, Mail } from "lucide-react"
+"use client";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  User,
+  GraduationCap,
+  MapPin,
+  Calendar,
+  Award,
+  Download,
+  Mail,
+  Briefcase,
+} from "lucide-react";
+import { experiences } from "@/constants";
 
 const Credentials = () => {
   const socialLinks = [
@@ -31,14 +41,26 @@ const Credentials = () => {
       label: "GitHub",
       color: "from-gray-500/20 to-gray-700/20",
     },
-  ]
+  ];
 
   const achievements = [
-    { title: "50+ Projects Completed", description: "Successfully delivered various web applications" },
-    { title: "4+ Years Experience", description: "Continuous learning and development in tech" },
-    { title: "Full-Stack Expertise", description: "Proficient in both frontend and backend technologies" },
-    { title: "Modern Tech Stack", description: "Always up-to-date with latest technologies" },
-  ]
+    {
+      title: "50+ Projects Completed",
+      description: "Successfully delivered various web applications",
+    },
+    {
+      title: "1+ Years Experience",
+      description: "Continuous learning and development in tech",
+    },
+    {
+      title: "Full-Stack Expertise",
+      description: "Proficient in both frontend and backend technologies",
+    },
+    {
+      title: "Modern Tech Stack",
+      description: "Always up-to-date with latest technologies",
+    },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,7 +70,7 @@ const Credentials = () => {
         staggerChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { y: 50, opacity: 0 },
@@ -60,19 +82,17 @@ const Credentials = () => {
         ease: "easeOut",
       },
     },
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black-1 via-black-2 to-black-1">
       <div className="mx-32 py-12 max-md:mx-4 gap-8 flex max-md:flex-col">
-        {/* Profile Sidebar */}
         <motion.div
           className="md:w-[30%] bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 md:sticky h-fit top-6 shadow-2xl"
           initial={{ scale: 0, x: -100 }}
           animate={{ scale: 1, x: 0 }}
           transition={{ duration: 0.8, type: "spring" }}
         >
-          {/* Profile Image */}
           <div className="relative mb-8">
             <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white-3/20">
               <Image
@@ -86,10 +106,16 @@ const Credentials = () => {
             <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-green-400 to-green-600 w-8 h-8 rounded-full border-4 border-black-2"></div>
           </div>
 
-          {/* Profile Info */}
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-extrabold text-white-1 mb-2">Ashish Jadhav</h1>
-            <p className="text-white-3 font-semibold mb-4">@ashishhh2210</p>
+            <h1 className="text-2xl font-extrabold text-white-1 mb-2">
+              Ashish Jadhav
+            </h1>
+            <p className="text-white-3 font-semibold mb-3">@ashishhh2210</p>
+
+            <div className="inline-flex items-center gap-2 bg-blue-400/10 text-blue-300 px-3 py-1.5 rounded-full text-xs mb-4">
+              <Briefcase className="w-3.5 h-3.5" />
+              <span>Founding Engineer @ GradGuide</span>
+            </div>
 
             <div className="flex items-center justify-center gap-2 text-white-3 mb-4">
               <MapPin className="w-4 h-4" />
@@ -98,16 +124,20 @@ const Credentials = () => {
 
             <div className="bg-gradient-to-r from-black-1/30 to-transparent rounded-xl p-4 mb-6">
               <p className="text-white-2 text-sm leading-relaxed">
-                Full-Stack Developer passionate about creating innovative web solutions and exploring cutting-edge
-                technologies.
+                Full-Stack Developer passionate about creating innovative web
+                solutions and exploring cutting-edge technologies.
               </p>
             </div>
           </div>
 
-          {/* Social Links */}
           <div className="grid grid-cols-2 gap-3 mb-8">
             {socialLinks.map((social, index) => (
-              <Link key={index} href={social.href} target="_blank" className="group">
+              <Link
+                key={index}
+                href={social.href}
+                target="_blank"
+                className="group"
+              >
                 <motion.div
                   className={`bg-gradient-to-r ${social.color} p-3 rounded-xl hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl`}
                   whileHover={{ y: -2 }}
@@ -125,7 +155,6 @@ const Credentials = () => {
             ))}
           </div>
 
-          {/* Action Buttons */}
           <div className="space-y-3">
             <Link href="/contact">
               <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
@@ -142,7 +171,6 @@ const Credentials = () => {
             </Button>
           </div>
 
-          {/* Quick Stats */}
           <div className="mt-8 grid grid-cols-2 gap-4">
             <div className="text-center p-3 bg-black-1/30 rounded-xl">
               <h4 className="text-lg font-bold text-white-1">50+</h4>
@@ -155,10 +183,12 @@ const Credentials = () => {
           </div>
         </motion.div>
 
-        {/* Main Content */}
         <div className="md:w-[70%] flex flex-col gap-12">
-          <motion.div variants={containerVariants} initial="hidden" animate="visible">
-            {/* About Me Section */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             <motion.div variants={itemVariants}>
               <div className="flex items-center gap-3 mb-8">
                 <div className="bg-gradient-to-r from-blue-400/20 to-blue-600/20 p-3 rounded-xl">
@@ -169,18 +199,21 @@ const Credentials = () => {
 
               <div className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 shadow-2xl mb-8">
                 <p className="text-white-2 text-lg leading-relaxed mb-6">
-                  I&apos;m a passionate tech enthusiast with a relentless curiosity for the latest advancements in
-                  technology. From groundbreaking gadgets and innovative software to emerging trends in artificial
-                  intelligence and cybersecurity, I&apos;m always on the cutting edge of what&apos;s new and next.
+                  I&apos;m a passionate tech enthusiast with a relentless
+                  curiosity for the latest advancements in technology. From
+                  groundbreaking gadgets and innovative software to emerging
+                  trends in artificial intelligence and cybersecurity, I&apos;m
+                  always on the cutting edge of what&apos;s new and next.
                 </p>
                 <p className="text-white-2 text-lg leading-relaxed mb-6">
-                  My journey in tech is driven by a love for problem-solving and a desire to understand how things work
-                  behind the scenes. Whether it&apos;s building scalable web applications, exploring blockchain technology,
-                  or diving into machine learning, I thrive on discovering and sharing insights about the technologies
-                  that shape our future.
+                  My journey in tech is driven by a love for problem-solving and
+                  a desire to understand how things work behind the scenes.
+                  Whether it&apos;s building scalable web applications,
+                  exploring blockchain technology, or diving into machine
+                  learning, I thrive on discovering and sharing insights about
+                  the technologies that shape our future.
                 </p>
 
-                {/* Achievements Grid */}
                 <div className="grid md:grid-cols-2 gap-4 mt-8">
                   {achievements.map((achievement, index) => (
                     <motion.div
@@ -191,16 +224,81 @@ const Credentials = () => {
                     >
                       <div className="flex items-center gap-3 mb-2">
                         <Award className="w-5 h-5 text-yellow-400" />
-                        <h4 className="text-white-1 font-semibold">{achievement.title}</h4>
+                        <h4 className="text-white-1 font-semibold">
+                          {achievement.title}
+                        </h4>
                       </div>
-                      <p className="text-white-3 text-sm">{achievement.description}</p>
+                      <p className="text-white-3 text-sm">
+                        {achievement.description}
+                      </p>
                     </motion.div>
                   ))}
                 </div>
               </div>
             </motion.div>
 
-            {/* Education Section */}
+            <motion.div variants={itemVariants}>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="bg-gradient-to-r from-blue-400/20 to-blue-600/20 p-3 rounded-xl">
+                  <Briefcase className="w-6 h-6 text-blue-400" />
+                </div>
+                <h2 className="text-3xl font-bold text-white-1">Experience</h2>
+              </div>
+
+              <div className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 max-md:p-6 shadow-2xl mb-8">
+                <div className="relative pl-6 border-l-2 border-blue-400/30 space-y-8">
+                  {experiences.map((exp, index) => (
+                    <div key={index} className="relative">
+                      <div className="absolute -left-[34px] top-1 w-4 h-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></div>
+
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <Calendar className="w-4 h-4 text-blue-400" />
+                        <span className="text-white-3 text-sm">
+                          {exp.period} · {exp.duration}
+                        </span>
+                        <span className="bg-blue-400/20 text-blue-300 px-2 py-0.5 rounded-full text-xs">
+                          {exp.type}
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-white-1 mb-1">
+                        {exp.role}
+                      </h3>
+                      <p className="text-white-2 mb-3">
+                        {exp.company} · {exp.location}
+                      </p>
+                      <p className="text-white-3 leading-relaxed mb-4">
+                        {exp.description}
+                      </p>
+
+                      <ul className="space-y-2 mb-4">
+                        {exp.highlights.map((highlight, highlightIndex) => (
+                          <li
+                            key={highlightIndex}
+                            className="flex gap-3 text-white-3 text-sm leading-relaxed"
+                          >
+                            <span className="mt-2 w-1.5 h-1.5 shrink-0 rounded-full bg-blue-400"></span>
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="flex flex-wrap gap-2">
+                        {exp.skills.map((skill, skillIndex) => (
+                          <span
+                            key={skillIndex}
+                            className="bg-blue-400/10 text-blue-300 px-3 py-1 rounded-full text-xs"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
             <motion.div variants={itemVariants}>
               <div className="flex items-center gap-3 mb-8">
                 <div className="bg-gradient-to-r from-green-400/20 to-green-600/20 p-3 rounded-xl">
@@ -216,30 +314,41 @@ const Credentials = () => {
                   <div className="mb-6">
                     <div className="flex items-center gap-2 mb-2">
                       <Calendar className="w-4 h-4 text-green-400" />
-                      <span className="text-white-3 text-sm">2022 - Present</span>
+                      <span className="text-white-3 text-sm">
+                        2022 - Present
+                      </span>
                     </div>
                     <h3 className="text-xl font-bold text-white-1 mb-2">
                       Bachelor of Engineering in Information Technology
                     </h3>
                     <p className="text-white-2 mb-4">University of Mumbai</p>
                     <p className="text-white-3 leading-relaxed">
-                      During my studies at Bharati Vidyapeeth, I immersed myself in the dynamic field of Information
-                      Technology. My coursework included Software Engineering, Machine Learning, and Network Security,
-                      providing me with a solid foundation in both theoretical concepts and practical applications.
+                      During my studies at Bharati Vidyapeeth, I immersed myself
+                      in the dynamic field of Information Technology. My
+                      coursework included Software Engineering, Machine
+                      Learning, and Network Security, providing me with a solid
+                      foundation in both theoretical concepts and practical
+                      applications.
                     </p>
                   </div>
 
                   <div className="grid md:grid-cols-3 gap-4 mt-6">
                     <div className="bg-green-400/10 rounded-xl p-4 text-center">
-                      <h4 className="text-white-1 font-semibold mb-1">Current CGPA</h4>
+                      <h4 className="text-white-1 font-semibold mb-1">
+                        Current CGPA
+                      </h4>
                       <p className="text-green-400 font-bold text-lg">8.5/10</p>
                     </div>
                     <div className="bg-green-400/10 rounded-xl p-4 text-center">
-                      <h4 className="text-white-1 font-semibold mb-1">Specialization</h4>
+                      <h4 className="text-white-1 font-semibold mb-1">
+                        Specialization
+                      </h4>
                       <p className="text-white-3 text-sm">Web Technologies</p>
                     </div>
                     <div className="bg-green-400/10 rounded-xl p-4 text-center">
-                      <h4 className="text-white-1 font-semibold mb-1">Expected</h4>
+                      <h4 className="text-white-1 font-semibold mb-1">
+                        Expected
+                      </h4>
                       <p className="text-white-3 text-sm">2026</p>
                     </div>
                   </div>
@@ -250,7 +359,7 @@ const Credentials = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Credentials
+export default Credentials;

@@ -1,31 +1,24 @@
-"use client"
-import Box from "@/components/Box"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { useRouter } from "next/navigation"
-import { GraduationCap, Briefcase, MapPin, Code, Star, ArrowRight, Download, Mail } from "lucide-react"
+"use client";
+import Box from "@/components/Box";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import {
+  GraduationCap,
+  Briefcase,
+  MapPin,
+  Code,
+  Star,
+  ArrowRight,
+  Download,
+  Mail,
+} from "lucide-react";
+import { experiences } from "@/constants";
 
 const About = () => {
-  const router = useRouter()
-
-  const experiences = [
-    {
-      period: "2022 - 2023",
-      role: "Frontend Developer",
-      company: "Personal Projects",
-      description: "Focused on creating responsive web applications using modern frontend technologies.",
-      skills: ["React", "JavaScript", "CSS3", "HTML5"],
-    },
-    {
-      period: "2023 - Present",
-      role: "Full-Stack Developer",
-      company: "SaaS/BaaS Applications",
-      description: "Building scalable SaaS and BaaS solutions with modern tech stack.",
-      skills: ["Next.js", "Node.js", "Database Design", "API Development"],
-    },
-  ]
+  const router = useRouter();
 
   const education = [
     {
@@ -39,10 +32,11 @@ const About = () => {
       period: "2022 - 2026",
       degree: "Bachelor of Engineering in Information Technology",
       institution: "University of Mumbai",
-      description: "Currently pursuing with specialization in web technologies and software development.",
+      description:
+        "Currently pursuing with specialization in web technologies and software development.",
       grade: "Current CGPA: 8.5/10",
     },
-  ]
+  ];
 
   const skills = [
     "React & Next.js",
@@ -53,7 +47,7 @@ const About = () => {
     "DevOps",
     "UI/UX Design",
     "Project Management",
-  ]
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -63,7 +57,7 @@ const About = () => {
         staggerChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { y: 50, opacity: 0 },
@@ -75,13 +69,17 @@ const About = () => {
         ease: "easeOut",
       },
     },
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black-1 via-black-2 to-black-1">
       <div className="mx-32 max-md:mx-2 py-12">
-        <motion.div className="flex flex-col gap-8" variants={containerVariants} initial="hidden" animate="visible">
-          {/* Hero Section */}
+        <motion.div
+          className="flex flex-col gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <motion.div className="text-center mb-8" variants={itemVariants}>
             <div className="flex justify-center items-center gap-4 mb-6">
               <Star className="w-12 h-12 text-white-3 animate-pulse" />
@@ -91,13 +89,12 @@ const About = () => {
               <Star className="w-12 h-12 text-white-3 animate-pulse" />
             </div>
             <p className="text-white-2 text-lg md:text-xl max-w-3xl mx-auto">
-              Passionate developer crafting digital experiences with modern technologies
+              Passionate developer crafting digital experiences with modern
+              technologies
             </p>
           </motion.div>
 
-          {/* Profile Section */}
           <div className="grid md:grid-cols-5 gap-8 mb-8">
-            {/* Profile Image */}
             <motion.div
               className="md:col-span-2 bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 shadow-2xl"
               variants={itemVariants}
@@ -116,8 +113,15 @@ const About = () => {
                   <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-green-400 to-green-600 w-8 h-8 rounded-full border-4 border-black-2"></div>
                 </div>
 
-                <h2 className="text-2xl font-bold text-white-1 mb-2">Ashish Jadhav</h2>
-                <p className="text-white-2 mb-4">Full-Stack Developer</p>
+                <h2 className="text-2xl font-bold text-white-1 mb-2">
+                  Ashish Jadhav
+                </h2>
+                <p className="text-white-2 mb-3">Full-Stack Developer</p>
+
+                <div className="inline-flex items-center gap-2 bg-blue-400/10 text-blue-300 px-3 py-1.5 rounded-full text-xs mb-4">
+                  <Briefcase className="w-3.5 h-3.5" />
+                  <span>Founding Engineer @ GradGuide</span>
+                </div>
 
                 <div className="flex items-center justify-center gap-2 text-white-3 mb-6">
                   <MapPin className="w-4 h-4" />
@@ -141,7 +145,6 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Self Summary */}
             <motion.div
               className="md:col-span-3 bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 shadow-2xl"
               variants={itemVariants}
@@ -150,13 +153,17 @@ const About = () => {
                 <div className="bg-gradient-to-r from-white-1/20 to-white-3/20 p-3 rounded-xl">
                   <Code className="w-6 h-6 text-white-3" />
                 </div>
-                <h3 className="text-2xl font-bold text-white-1">Self Summary</h3>
+                <h3 className="text-2xl font-bold text-white-1">
+                  Self Summary
+                </h3>
               </div>
 
               <p className="text-white-2 text-lg leading-relaxed mb-6">
-                I am a Mumbai-based Information Technology student with a passion for creating innovative web solutions.
-                My expertise spans across web design, automation, and webhook management, with a diverse range of
-                experience across various modern technologies and tools.
+                I am a Mumbai-based Information Technology student with a
+                passion for creating innovative web solutions. My expertise
+                spans across web design, automation, and webhook management,
+                with a diverse range of experience across various modern
+                technologies and tools.
               </p>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
@@ -166,8 +173,13 @@ const About = () => {
                   { label: "Technologies", value: "15+" },
                   { label: "Satisfaction", value: "100%" },
                 ].map((stat, index) => (
-                  <div key={index} className="text-center p-4 bg-black-1/30 rounded-xl">
-                    <h4 className="text-xl font-bold text-white-1">{stat.value}</h4>
+                  <div
+                    key={index}
+                    className="text-center p-4 bg-black-1/30 rounded-xl"
+                  >
+                    <h4 className="text-xl font-bold text-white-1">
+                      {stat.value}
+                    </h4>
                     <p className="text-white-3 text-sm">{stat.label}</p>
                   </div>
                 ))}
@@ -189,89 +201,120 @@ const About = () => {
             </motion.div>
           </div>
 
-          {/* Experience & Education */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Experience */}
-            <motion.div
-              className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 shadow-2xl"
-              variants={itemVariants}
-            >
-              <div className="flex items-center gap-3 mb-8">
-                <div className="bg-gradient-to-r from-blue-400/20 to-blue-600/20 p-3 rounded-xl">
-                  <Briefcase className="w-6 h-6 text-blue-400" />
-                </div>
-                <h3 className="text-2xl font-bold text-white-1">Experience</h3>
+          <motion.div
+            className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 max-md:p-6 shadow-2xl"
+            variants={itemVariants}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <div className="bg-gradient-to-r from-blue-400/20 to-blue-600/20 p-3 rounded-xl">
+                <Briefcase className="w-6 h-6 text-blue-400" />
               </div>
+              <h3 className="text-2xl font-bold text-white-1">Experience</h3>
+            </div>
 
-              <div className="space-y-6">
-                {experiences.map((exp, index) => (
-                  <motion.div
-                    key={index}
-                    className="relative pl-6 border-l-2 border-white-3/20 hover:border-white-3/40 transition-colors"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></div>
+            <div className="space-y-6">
+              {experiences.map((exp, index) => (
+                <motion.div
+                  key={index}
+                  className="relative pl-6 border-l-2 border-white-3/20 hover:border-white-3/40 transition-colors"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></div>
 
-                    <div className="bg-black-1/30 rounded-xl p-4 hover:bg-black-1/50 transition-colors">
-                      <p className="text-white-3 text-sm mb-1">{exp.period}</p>
-                      <h4 className="text-white-1 font-bold text-lg mb-1">{exp.role}</h4>
-                      <p className="text-white-2 text-sm mb-3">{exp.company}</p>
-                      <p className="text-white-3 text-sm mb-3">{exp.description}</p>
-
-                      <div className="flex flex-wrap gap-2">
-                        {exp.skills.map((skill, skillIndex) => (
-                          <span key={skillIndex} className="bg-blue-400/20 text-blue-300 px-2 py-1 rounded text-xs">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
+                  <div className="bg-black-1/30 rounded-xl p-5 max-md:p-4 hover:bg-black-1/50 transition-colors">
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <p className="text-white-3 text-sm">
+                        {exp.period} · {exp.duration}
+                      </p>
+                      <span className="bg-blue-400/20 text-blue-300 px-2 py-0.5 rounded-full text-xs">
+                        {exp.type}
+                      </span>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
 
-            {/* Education */}
-            <motion.div
-              className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 shadow-2xl"
-              variants={itemVariants}
-            >
-              <div className="flex items-center gap-3 mb-8">
-                <div className="bg-gradient-to-r from-green-400/20 to-green-600/20 p-3 rounded-xl">
-                  <GraduationCap className="w-6 h-6 text-green-400" />
-                </div>
-                <h3 className="text-2xl font-bold text-white-1">Education</h3>
-              </div>
+                    <h4 className="text-white-1 font-bold text-lg">
+                      {exp.role}
+                    </h4>
+                    <p className="text-white-2 text-sm mb-3">
+                      {exp.company} · {exp.location}
+                    </p>
+                    <p className="text-white-3 text-sm mb-4">
+                      {exp.description}
+                    </p>
 
-              <div className="space-y-6">
-                {education.map((edu, index) => (
-                  <motion.div
-                    key={index}
-                    className="relative pl-6 border-l-2 border-white-3/20 hover:border-white-3/40 transition-colors"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
+                    <ul className="space-y-2 mb-4">
+                      {exp.highlights.map((highlight, highlightIndex) => (
+                        <li
+                          key={highlightIndex}
+                          className="flex gap-3 text-white-3 text-sm leading-relaxed"
+                        >
+                          <span className="mt-2 w-1.5 h-1.5 shrink-0 rounded-full bg-blue-400"></span>
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                    <div className="bg-black-1/30 rounded-xl p-4 hover:bg-black-1/50 transition-colors">
-                      <p className="text-white-3 text-sm mb-1">{edu.period}</p>
-                      <h4 className="text-white-1 font-bold text-lg mb-1">{edu.degree}</h4>
-                      <p className="text-white-2 text-sm mb-3">{edu.institution}</p>
-                      <p className="text-white-3 text-sm mb-3">{edu.description}</p>
-                      <div className="bg-green-400/20 text-green-300 px-3 py-1 rounded-full text-xs inline-block">
-                        {edu.grade}
-                      </div>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.skills.map((skill, skillIndex) => (
+                        <span
+                          key={skillIndex}
+                          className="bg-blue-400/20 text-blue-300 px-2 py-1 rounded text-xs"
+                        >
+                          {skill}
+                        </span>
+                      ))}
                     </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
-          {/* Bottom Action Section */}
-          <motion.div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8" variants={itemVariants}>
-            {/* Social Links */}
+          <motion.div
+            className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 max-md:p-6 shadow-2xl"
+            variants={itemVariants}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <div className="bg-gradient-to-r from-green-400/20 to-green-600/20 p-3 rounded-xl">
+                <GraduationCap className="w-6 h-6 text-green-400" />
+              </div>
+              <h3 className="text-2xl font-bold text-white-1">Education</h3>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {education.map((edu, index) => (
+                <motion.div
+                  key={index}
+                  className="relative pl-6 border-l-2 border-white-3/20 hover:border-white-3/40 transition-colors"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
+
+                  <div className="bg-black-1/30 rounded-xl p-4 h-full hover:bg-black-1/50 transition-colors">
+                    <p className="text-white-3 text-sm mb-1">{edu.period}</p>
+                    <h4 className="text-white-1 font-bold text-lg mb-1">
+                      {edu.degree}
+                    </h4>
+                    <p className="text-white-2 text-sm mb-3">
+                      {edu.institution}
+                    </p>
+                    <p className="text-white-3 text-sm mb-3">
+                      {edu.description}
+                    </p>
+                    <div className="bg-green-400/20 text-green-300 px-3 py-1 rounded-full text-xs inline-block">
+                      {edu.grade}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8"
+            variants={itemVariants}
+          >
             <motion.div
               className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-6 shadow-2xl relative overflow-hidden"
               whileHover={{ scale: 1.02 }}
@@ -295,7 +338,11 @@ const About = () => {
                     />
                   </div>
                 </Link>
-                <Link href="https://x.com/ashishhh2210" target="_blank" className="group">
+                <Link
+                  href="https://x.com/ashishhh2210"
+                  target="_blank"
+                  className="group"
+                >
                   <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 p-4 rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
                     <Image
                       src="/twitter.svg"
@@ -309,7 +356,9 @@ const About = () => {
               </div>
 
               <div className="text-center">
-                <p className="font-semibold text-white-3 text-sm mb-1">STAY CONNECTED</p>
+                <p className="font-semibold text-white-3 text-sm mb-1">
+                  STAY CONNECTED
+                </p>
                 <h3 className="text-white-1 font-bold text-lg">Follow Me</h3>
               </div>
 
@@ -321,7 +370,6 @@ const About = () => {
               </Button>
             </motion.div>
 
-            {/* Work Together CTA */}
             <motion.div
               className="md:col-span-2 bg-gradient-to-r from-black-6 via-black-2 to-black-6 rounded-3xl p-8 shadow-2xl relative overflow-hidden group cursor-pointer"
               whileHover={{ scale: 1.02 }}
@@ -339,7 +387,9 @@ const About = () => {
                     Great
                   </span>
                 </h2>
-                <p className="text-white-2 mb-6">Ready to turn your ideas into reality? Let&apos;s collaborate!</p>
+                <p className="text-white-2 mb-6">
+                  Ready to turn your ideas into reality? Let&apos;s collaborate!
+                </p>
 
                 <Button className="bg-gradient-to-r from-white-1 to-white-3 text-black-1 hover:scale-105 transition-all duration-300 font-semibold px-6 py-3 rounded-full shadow-lg">
                   <span>Get In Touch</span>
@@ -350,8 +400,10 @@ const About = () => {
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-xl"></div>
             </motion.div>
 
-            {/* Credentials */}
-            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
               <Box
                 className="h-full"
                 image="/signature.svg"
@@ -364,7 +416,7 @@ const About = () => {
         </motion.div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
