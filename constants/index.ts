@@ -86,11 +86,39 @@ export const experiences = [
     }
 ]
 
-export const projects = [
+export interface Project {
+    id: string
+    name: string
+    thumbnail: string
+    techStack: string[]
+    description: string
+    service: string
+    year: string
+    duration: string
+    role: string
+    teamSize: string
+    /** Live URL, with or without protocol. Not every project has one. */
+    link?: string
+    githubUrl?: string
+    videoUrl: string
+    showcaseImages: string[]
+    overview: string
+    challenge: string
+    solution: string
+    features: { title: string; description: string }[]
+    architecture: string
+    performanceMetrics: { label: string; value: string }[]
+    /** Either a set of headline numbers, or a prose summary of the outcome. */
+    impact: { value: string; label: string }[] | string
+    keyLearnings: string[]
+    futureEnhancements: string[]
+}
+
+export const projects: Project[] = [
     {
         id: 'zero-hub',
         name: 'ZERO | HUB',
-        thumbnail: '/projects/zerohub.png',
+        thumbnail: '/projects/hub.png',
         techStack: ['Next.js', 'tRPC', 'Drizzle', 'PostgreSQL', 'Payload CMS', 'Docker', 'AWS EC2', 'NGINX', 'Stripe', 'Razorpay'],
         description: 'A comprehensive SaaS platform empowering businesses to create stunning, customizable online storefronts with subdomain support, integrated payments, and powerful content management capabilities.',
         service: 'Multi-vendor Platform',
@@ -240,7 +268,7 @@ export const projects = [
     {
         id: 'kafka-pipeline',
         name: 'Kafka Message Pipeline',
-        thumbnail: '/projects/kafka.png',
+        thumbnail: '/projects/intelligence.png',
         techStack: ['Apache Kafka', 'Node.js', 'ClickHouse', 'Docker', 'PostgreSQL', 'Express.js'],
         description: 'A high-performance, distributed message queue system built with Apache Kafka for real-time data streaming and processing, integrated with ClickHouse for advanced analytics and monitoring.',
         service: 'Data Pipeline',
@@ -395,7 +423,7 @@ export const projects = [
     {
         id: 'itsa',
         name: 'ITSA Platform',
-        thumbnail: '/projects/itsa.png',
+        thumbnail: '/projects/campus.png',
         techStack: ['React', 'Node.js', 'MongoDB', 'Express.js', 'JWT', 'Material-UI'],
         description: 'A comprehensive platform for the Information Technology Student Association, facilitating event management, member registrations, academic resource sharing, and community building.',
         service: 'Educational Platform',
@@ -467,7 +495,7 @@ export const projects = [
     {
         id: 'stickers',
         name: 'Stickers Marketplace',
-        thumbnail: '/projects/stickers.png',
+        thumbnail: '',
         techStack: ['Next.js', 'Shopify API', 'Stripe', 'Tailwind CSS', 'TypeScript'],
         description: 'A modern e-commerce platform specializing in custom sticker designs with print-on-demand integration, personalization tools, and seamless shopping experience.',
         service: 'E-commerce Platform',
@@ -622,9 +650,92 @@ export const projects = [
     }
 ]
 
-// zero-deploy
-// zero-hub
-// kafka-pipeline
-// itsa 
-// stickers
+export const profile = {
+    name: 'Ashish Jadhav',
+    handle: '@ashishhh2210',
+    role: 'Full-stack Engineer',
+    title: 'Founding Engineer',
+    company: 'GradGuide',
+    location: 'Mumbai, India',
+    email: 'ashishjadhav9900@gmail.com',
+    phone: '+91 7400106790',
+    resume: '/pdf/Ashish Jadhav Resume.pdf',
+    available: true,
+    intro: 'I build products end to end — schema to shipped interface. Currently the founding engineer at GradGuide, where I own the CRM used daily by sales, counselling and admissions, and ship new internal products alongside it.',
+}
+
+export const socials = [
+    { label: 'GitHub', href: 'https://github.com/Ashish1022', icon: '/github.svg' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ashish-jadhav-zero', icon: '/linkedin.svg' },
+    { label: 'X', href: 'https://x.com/ashishhh2210', icon: '/twitter.svg' },
+    { label: 'Instagram', href: 'https://www.instagram.com/ashishhh2210?igsh=MWR1NHBxZmZ1MGY5OQ==', icon: '/instagram.svg' },
+    { label: 'Discord', href: 'https://discord.gg/63sd6r2N88', icon: '/discord.svg' },
+]
+
+/** Numbers pulled from shipped work — no vanity metrics. */
+export const metrics = [
+    { value: '50K+', label: 'Concurrent leads served' },
+    { value: '99%', label: 'Platform uptime' },
+    { value: '15', label: 'Self-contained modules' },
+    { value: '4', label: 'Products shipped' },
+]
+
+export const capabilities = [
+    {
+        title: 'Product engineering',
+        summary: 'Type-safe full-stack applications from database schema through to the shipped interface, built to be handed over and maintained.',
+        stack: ['Next.js', 'TypeScript', 'tRPC', 'Drizzle ORM', 'TanStack Query'],
+    },
+    {
+        title: 'Data & platform architecture',
+        summary: 'Relational schema design, query performance, and the analytics layer that turns operational data into dashboards people act on.',
+        stack: ['PostgreSQL', 'SQL Analytics', 'ClickHouse', 'Redis', 'Schema Design'],
+    },
+    {
+        title: 'Automation & integrations',
+        summary: 'Webhooks, scheduled jobs and messaging pipelines that survive deploys and restarts, plus third-party integrations that stay reliable in production.',
+        stack: ['QStash', 'Kafka', 'WhatsApp API', 'Webhooks', 'Cron'],
+    },
+    {
+        title: 'Infrastructure & deployment',
+        summary: 'Containerised services on cloud infrastructure, with the deployment path, load balancing and monitoring set up around them.',
+        stack: ['Docker', 'AWS ECS', 'NGINX', 'CI/CD', 'Cloud Deployment'],
+    },
+]
+
+export const education = [
+    {
+        period: '2022 — 2026',
+        degree: 'B.E. Information Technology',
+        institution: 'University of Mumbai',
+        detail: 'Coursework across software engineering, machine learning and network security, specialising in web technologies.',
+        result: 'CGPA 8.5 / 10',
+    },
+    {
+        period: '2020 — 2022',
+        degree: 'Higher Secondary — Science',
+        institution: 'University of Mumbai',
+        detail: 'Focused on mathematics and physics.',
+        result: 'Distinction',
+    },
+]
+
+export const stack = [
+    {
+        group: 'Languages',
+        items: ['TypeScript', 'JavaScript', 'Python', 'SQL'],
+    },
+    {
+        group: 'Frontend',
+        items: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion', 'TanStack Query'],
+    },
+    {
+        group: 'Backend',
+        items: ['Node.js', 'tRPC', 'Drizzle ORM', 'PostgreSQL', 'Redis', 'Convex'],
+    },
+    {
+        group: 'Infrastructure',
+        items: ['Docker', 'AWS ECS', 'NGINX', 'Kafka', 'ClickHouse', 'QStash'],
+    },
+]
 // zero-story

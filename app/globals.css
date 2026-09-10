@@ -2,43 +2,199 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-:root {
-  color-scheme: dark;
-  scroll-behavior: smooth;
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    --background: 240 6% 4%;
+    --foreground: 60 6% 96%;
+
+    --surface: 240 5% 7%;
+    --raised: 240 5% 10%;
+
+    --card: 240 5% 7%;
+    --card-foreground: 60 6% 96%;
+
+    --popover: 240 5% 7%;
+    --popover-foreground: 60 6% 96%;
+
+    --primary: 60 6% 96%;
+    --primary-foreground: 240 6% 5%;
+
+    --secondary: 240 5% 12%;
+    --secondary-foreground: 60 6% 96%;
+
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 60%;
+
+    --accent: 240 5% 12%;
+    --accent-foreground: 60 6% 96%;
+
+    --destructive: 0 68% 56%;
+    --destructive-foreground: 60 6% 96%;
+
+    --border: 240 5% 15%;
+    --input: 240 5% 18%;
+    --ring: 60 6% 80%;
+
+    /* The one accent in the system. Reserved for live/available status. */
+    --signal: 148 60% 52%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "ss01";
+  }
+
+  ::selection {
+    @apply bg-foreground text-background;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-1 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* When the custom cursor is mounted, hand the pointer over to it — but keep
+     a real caret in anything you type into. */
+  [data-cursor="on"],
+  [data-cursor="on"] * {
+    cursor: none;
+  }
+
+  [data-cursor="on"] input,
+  [data-cursor="on"] textarea,
+  [data-cursor="on"] select {
+    cursor: text;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Page gutter. Replaces the old fixed mx-32. */
+  .shell {
+    @apply mx-auto w-full max-w-[1180px] px-6 md:px-10;
+  }
+
+  /* Type scale ------------------------------------------------------- */
+  .display {
+    @apply text-[clamp(2.5rem,7.5vw,5.25rem)] font-medium leading-[0.94] tracking-tightest;
+  }
+
+  .h1 {
+    @apply text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.02] tracking-tightest;
+  }
+
+  .h2 {
+    @apply text-[clamp(1.5rem,3vw,2.25rem)] font-medium leading-[1.1] tracking-display;
+  }
+
+  .h3 {
+    @apply text-[clamp(1.125rem,1.6vw,1.375rem)] font-medium leading-snug tracking-display;
+  }
+
+  .lede {
+    @apply text-[clamp(1rem,1.35vw,1.1875rem)] leading-[1.65] text-muted-foreground;
+  }
+
+  .body {
+    @apply text-[15px] leading-[1.7] text-muted-foreground;
+  }
+
+  /* Mono metadata label — the editorial workhorse. */
+  .eyebrow {
+    @apply font-mono text-[10.5px] uppercase leading-none tracking-label text-muted-foreground;
+  }
+
+  .meta {
+    @apply font-mono text-[11.5px] leading-none tracking-wide text-muted-foreground;
+  }
+
+  /* Structure -------------------------------------------------------- */
+  .rule {
+    @apply h-px w-full bg-border;
+  }
+
+  /* A row that reveals a hairline-bounded hover field. */
+  .row-link {
+    @apply relative flex items-baseline gap-6 border-t border-border py-6 transition-colors duration-300 md:py-7;
+  }
+
+  /* Wipe that fills a row from the bottom on hover. */
+  .row-wipe::before {
+    content: "";
+    @apply absolute inset-x-[-1.5rem] inset-y-0 -z-10 origin-bottom scale-y-0 bg-raised transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)];
+  }
+
+  .group:hover .row-wipe::before {
+    @apply origin-bottom scale-y-100;
+  }
+
+  /* Inline text link with an underline that draws in on hover. */
+  .link {
+    @apply relative inline-flex w-fit items-center gap-1.5 text-foreground transition-opacity duration-200 after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-current after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100;
+  }
+
+  /* Buttons ---------------------------------------------------------- */
+  .btn {
+    @apply inline-flex h-11 items-center justify-center gap-2 rounded-full px-6 text-[13.5px] font-medium tracking-tight transition-all duration-300;
+  }
+
+  .btn-solid {
+    @apply btn bg-foreground text-background hover:bg-foreground/85;
+  }
+
+  .btn-ghost {
+    @apply btn border border-border text-foreground hover:border-foreground/35 hover:bg-raised;
+  }
+
+  /* Small pill used for tech tags and statuses. */
+  .tag {
+    @apply inline-flex items-center rounded-full border border-border px-2.5 py-1 font-mono text-[10.5px] uppercase tracking-wider text-muted-foreground;
+  }
+
+  /* Field styling for the contact form — underline, not boxed. */
+  .field {
+    @apply h-12 w-full rounded-none border-0 border-b border-border bg-transparent px-0 text-[15px] text-foreground transition-colors duration-300 placeholder:text-muted-foreground/70 focus:border-foreground focus-visible:ring-0 focus-visible:ring-offset-0;
+  }
 }
 
 @layer utilities {
-  .navbar {
-    @apply flex flex-col py-8 justify-center border-none text-white-1 max-md:hidden w-full h-[80px];
+  /* A faint grain so large flat areas don't band. */
+  .grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.028;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  .text-12 {
-    @apply text-[12px] leading-normal;
-  }
-
-  .text-14 {
-    @apply text-[14px] leading-normal;
-  }
-
-  .text-16 {
-    @apply text-[16px] leading-normal;
-  }
-
-  .text-18 {
-    @apply text-[18px] leading-normal;
-  }
-
-  .text-20 {
-    @apply text-[20px] leading-normal;
-  }
-
-  .text-24 {
-    @apply text-[24px] leading-normal;
-  }
-
-  .text-32 {
-    @apply text-[32px] leading-normal;
+  .mask-fade-r {
+    mask-image: linear-gradient(to right, black 80%, transparent 100%);
   }
 }

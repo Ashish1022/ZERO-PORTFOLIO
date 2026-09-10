@@ -1,376 +1,285 @@
-"use client"
-import Box from "@/components/Box"
-import BoxWithImage from "@/components/BoxWithImage"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { motion } from "framer-motion"
-import { Download, ArrowRight, ExternalLink, Sparkles, Zap, Star, Code, Users, Briefcase } from "lucide-react"
+import Link from "next/link";
+
+import AnimatedText, { AnimatedTextInView } from "@/components/AnimatedText";
+import Counter from "@/components/Counter";
+import LocalTime from "@/components/LocalTime";
+import Magnetic from "@/components/Magnetic";
+import Marquee from "@/components/Marquee";
+import ParallaxImage from "@/components/ParallaxImage";
+import Reveal from "@/components/Reveal";
+import ScrollHighlight from "@/components/ScrollHighlight";
+import RollText from "@/components/RollText";
+import Spotlight from "@/components/Spotlight";
+import WorkList from "@/components/WorkList";
+import { Section, SectionHeading } from "@/components/Section";
+import {
+  capabilities,
+  experiences,
+  metrics,
+  profile,
+  projects,
+  stack,
+} from "@/constants";
+
+const featured = projects.slice(0, 4).map((project) => ({
+  id: project.id,
+  name: project.name,
+  service: project.service,
+  year: project.year,
+  thumbnail: project.thumbnail,
+}));
+
+const current = experiences[0];
+const ticker = stack.flatMap((group) => group.items).slice(0, 14);
 
 const Home = () => {
-  const router = useRouter()
-
-  const services = [
-    { icon: "/webdev.png", label: "Web Development", color: "from-blue-400/20 to-blue-600/20" },
-    { icon: "/python.png", label: "Python Development", color: "from-green-400/20 to-green-600/20" },
-    { icon: "/server.png", label: "Backend Services", color: "from-purple-400/20 to-purple-600/20" },
-    { icon: "/webhook.png", label: "API Integration", color: "from-orange-400/20 to-orange-600/20" },
-  ]
-
-  const socialLinks = [
-    {
-      href: "https://www.instagram.com/ashishhh2210?igsh=MWR1NHBxZmZ1MGY5OQ==",
-      icon: "/instagram.svg",
-      label: "Instagram",
-      color: "from-pink-500/20 to-purple-500/20",
-    },
-    {
-      href: "https://www.linkedin.com/in/ashish-jadhav-zero",
-      icon: "/linkedin.svg",
-      label: "LinkedIn",
-      color: "from-blue-500/20 to-cyan-500/20",
-    },
-  ]
-
-  const quickStats = [
-    { icon: Briefcase, number: "4+", label: "Years Experience", color: "from-blue-400 to-blue-600" },
-    { icon: Code, number: "50+", label: "Projects Done", color: "from-green-400 to-green-600" },
-    { icon: Users, number: "100%", label: "Client Satisfaction", color: "from-purple-400 to-purple-600" },
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  }
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black-1 via-black-2 to-black-1 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl"></div>
-      </div>
+    <>
+      {/* Hero ---------------------------------------------------------- */}
+      <section className="relative isolate overflow-hidden">
+        <Spotlight />
 
-      <div className="mx-32 py-12 max-md:mx-2 relative z-10">
-        <motion.div className="flex flex-col gap-12" variants={containerVariants} initial="hidden" animate="visible">
-          {/* Hero Section */}
-          <motion.div className="text-center mb-8" variants={itemVariants}>
-            <motion.div
-              className="flex justify-center items-center gap-4 mb-6"
-              initial={{ scale: 0, }}
-              animate={{ scale: 1, }}
-              transition={{ duration: 1, type: "spring" }}
-            >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              >
-                <Sparkles className="w-12 h-12 text-white-3" />
-              </motion.div>
-              <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-white-1 via-blue-300 to-white-3 bg-clip-text text-transparent">
-                ASHISH JADHAV
-              </h1>
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              >
-                <Sparkles className="w-12 h-12 text-white-3" />
-              </motion.div>
-            </motion.div>
-
-            <motion.p
-              className="text-white-2 text-lg md:text-xl max-w-3xl mx-auto mb-6 leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              Full-Stack Developer & Tech Enthusiast crafting{" "}
-              <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text font-bold">
-                digital experiences
-              </span>{" "}
-              with modern technologies
-            </motion.p>
-
-            <motion.div
-              className="flex justify-center items-center gap-3 bg-gradient-to-r from-green-500/20 to-green-600/20 px-6 py-3 rounded-full border border-green-400/30 w-fit mx-auto"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-green-300 font-semibold">Available for freelance work</span>
-            </motion.div>
-          </motion.div>
-
-          {/* Main Profile Section */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Enhanced Profile Image */}
-            <motion.div variants={itemVariants}>
-              <BoxWithImage className="h-full" image="/profile2.png" />
-            </motion.div>
-
-            {/* Quick Info Cards */}
-            <motion.div className="flex flex-col gap-6" variants={itemVariants}>
-              {/* Freelance Status */}
-              <motion.div
-                className="bg-gradient-to-r from-black-6 to-black-2 rounded-3xl p-6 shadow-2xl border border-green-400/20 relative overflow-hidden group"
-                whileHover={{ scale: 1.02, y: -2 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-green-600/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="bg-gradient-to-r from-green-400/20 to-green-600/20 p-3 rounded-xl group-hover:scale-110 transition-transform">
-                      <Zap className="w-6 h-6 text-green-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-white-1 font-bold text-lg">Freelance Work</h3>
-                      <p className="text-white-3 text-sm">Available for new projects</p>
-                    </div>
-                  </div>
-                  <p className="text-white-2 leading-relaxed">
-                    Ready to bring your ideas to life with cutting-edge web technologies and innovative solutions.
-                  </p>
+        <div className="shell pb-16 pt-20 md:pb-24 md:pt-32">
+          <div className="grid gap-14 md:grid-cols-12 md:gap-10">
+            <div className="md:col-span-8">
+              <Reveal intro>
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                  <span className="flex items-center gap-2.5">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal opacity-60" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-signal" />
+                    </span>
+                    <span className="eyebrow">Available for work</span>
+                  </span>
+                  <span aria-hidden className="hidden h-3 w-px bg-border sm:block" />
+                  <span className="eyebrow normal-case tracking-wider">
+                    <LocalTime />
+                  </span>
                 </div>
-              </motion.div>
+              </Reveal>
 
-              {/* Navigation Cards */}
-              <div className="grid grid-cols-2 gap-4">
-                <Box
-                  className="h-full"
-                  image="/signature.svg"
-                  subtitle="MORE ABOUT ME"
-                  title="My Story"
-                  route="/credentials"
-                />
-                <Box className="h-full" image="/project.svg" title="Portfolio" subtitle="MY WORKS" route="/work" />
-              </div>
-            </motion.div>
-          </div>
+              <AnimatedText
+                as="h1"
+                text="I build products end to end."
+                delay={0.25}
+                className="display mt-8 max-w-[16ch] text-foreground"
+              />
 
-          {/* Services & Social Section */}
-          <div className="grid md:grid-cols-4 gap-6">
-            {/* CV Download */}
-            <motion.div variants={itemVariants}>
-              <motion.div
-                className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-6 shadow-2xl h-full cursor-pointer group relative overflow-hidden"
-                whileHover={{ scale: 1.02, y: -5 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => window.open("/pdf/Ashish Jadhav Resume.pdf", "_blank")}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <Reveal delay={5} intro>
+                <p className="lede mt-8 max-w-xl">{profile.intro}</p>
+              </Reveal>
 
-                <div className="relative z-10 text-center h-full flex flex-col justify-between">
-                  <div className="bg-gradient-to-r from-blue-400/20 to-blue-600/20 p-4 rounded-2xl mb-4 group-hover:scale-110 transition-transform">
-                    <Download className="w-8 h-8 text-blue-400 mx-auto" />
-                  </div>
-                  <div>
-                    <p className="text-white-3 font-semibold text-sm uppercase tracking-wider mb-2">MY RESUME</p>
-                    <h3 className="text-white-1 font-bold text-xl mb-4">Download CV</h3>
-                    <Button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-2 rounded-xl group-hover:scale-105 transition-all">
-                      <Download className="w-4 h-4 mr-2" />
-                      Get PDF
-                    </Button>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Enhanced Services Showcase */}
-            <motion.div
-              className="md:col-span-2 bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 shadow-2xl relative overflow-hidden group"
-              variants={itemVariants}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    <p className="text-white-3 font-semibold text-sm uppercase tracking-wider mb-2">SPECIALIZATION</p>
-                    <h3 className="text-white-1 font-bold text-2xl">Services Offering</h3>
-                  </div>
-                  <Button
-                    className="bg-gradient-to-r from-white-1/20 to-white-3/20 hover:scale-110 transition-all p-3 rounded-full"
-                    onClick={() => router.push("/services")}
-                  >
-                    <ArrowRight className="w-5 h-5" />
-                  </Button>
-                </div>
-
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                  {services.map((service, index) => (
-                    <motion.div
-                      key={index}
-                      className={`bg-gradient-to-r ${service.color} p-4 rounded-2xl hover:scale-110 transition-all duration-300 cursor-pointer group/service`}
-                      whileHover={{ y: -5 }}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <Image
-                        src={service.icon || "/placeholder.svg"}
-                        alt={service.label}
-                        width={32}
-                        height={32}
-                        className="mx-auto mb-2 group-hover/service:scale-110 transition-transform"
-                      />
-                      <p className="text-white-2 text-xs text-center font-medium">{service.label}</p>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <div className="text-center">
-                  <Button
-                    className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-6 py-3 rounded-xl hover:scale-105 transition-all"
-                    onClick={() => router.push("/services")}
-                  >
-                    View All Services
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Enhanced Social Links */}
-            <motion.div
-              className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-6 shadow-2xl relative overflow-hidden group"
-              variants={itemVariants}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-600/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-              <div className="relative z-10 text-center h-full flex flex-col justify-between">
-                <div>
-                  <p className="text-white-3 font-semibold text-sm uppercase tracking-wider mb-2">STAY CONNECTED</p>
-                  <h3 className="text-white-1 font-bold text-xl mb-6">Follow Me</h3>
-                </div>
-
-                <div className="space-y-4 mb-6">
-                  {socialLinks.map((social, index) => (
-                    <Link key={index} href={social.href} target="_blank" className="block group/social">
-                      <motion.div
-                        className={`bg-gradient-to-r ${social.color} p-4 rounded-2xl hover:scale-110 transition-all duration-300 shadow-lg group-hover/social:shadow-xl`}
-                        whileHover={{ y: -2 }}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.2 }}
+              <Reveal delay={6} intro>
+                <div className="mt-10 flex flex-wrap items-center gap-3">
+                  <Magnetic>
+                    <Link href="/work" className="group btn-solid overflow-hidden">
+                      <RollText>View work</RollText>
+                      <span
+                        aria-hidden
+                        className="transition-transform duration-500 group-hover:translate-x-1"
                       >
-                        <Image
-                          src={social.icon || "/placeholder.svg"}
-                          alt={social.label}
-                          width={32}
-                          height={32}
-                          className="mx-auto group-hover/social:scale-110 transition-transform"
-                        />
-                      </motion.div>
+                        →
+                      </span>
                     </Link>
-                  ))}
+                  </Magnetic>
+                  <Magnetic>
+                    <a
+                      href={profile.resume}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group btn-ghost relative overflow-hidden"
+                    >
+                      <span className="absolute inset-0 -z-10 origin-bottom scale-y-0 bg-raised transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100" />
+                      <RollText>Résumé</RollText>
+                      <span aria-hidden>↗</span>
+                    </a>
+                  </Magnetic>
                 </div>
-
-                <Button
-                  className="w-full bg-gradient-to-r from-white-1/20 to-white-3/20 hover:scale-105 transition-all"
-                  onClick={() => router.push("/socials")}
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Enhanced CTA Section */}
-          <motion.div
-            className="bg-gradient-to-r from-black-6 via-black-2 to-black-6 rounded-3xl p-12 shadow-2xl relative overflow-hidden group cursor-pointer"
-            variants={itemVariants}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-            onClick={() => router.push("/contact")}
-          >
-            {/* Animated Background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-            {/* Floating Elements */}
-            <motion.div
-              className="absolute top-8 right-8 text-blue-400/30"
-              animate={{ rotate: 360, scale: [1, 1.2, 1] }}
-              transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            >
-              <Star className="w-8 h-8" />
-            </motion.div>
-
-            <motion.div
-              className="absolute bottom-8 left-8 text-purple-400/30"
-              animate={{ rotate: -360, y: [-10, 10, -10] }}
-              transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-            >
-              <Code className="w-6 h-6" />
-            </motion.div>
-
-            <div className="relative z-10 text-center">
-              <motion.h2
-                className="text-4xl md:text-6xl font-extrabold text-white-1 mb-6 leading-tight"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                Let&apos;s Create
-                <br />
-                Something{" "}
-                <span className="text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text">
-                  Amazing
-                </span>
-              </motion.h2>
-
-              <motion.p
-                className="text-white-2 mb-8 text-xl max-w-3xl mx-auto leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                Ready to bring your ideas to life? Let&apos;s start a conversation and build the future together with
-                cutting-edge technology and creative solutions.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-              >
-                <Button className="bg-gradient-to-r from-white-1 to-white-3 text-black-1 hover:scale-105 transition-all duration-300 font-bold px-10 py-5 rounded-full shadow-2xl text-lg group/cta">
-                  <span>Start Your Project</span>
-                  <ArrowRight className="w-6 h-6 ml-3 group-hover/cta:translate-x-2 transition-transform" />
-                </Button>
-              </motion.div>
+              </Reveal>
             </div>
 
-            {/* Decorative Elements */}
-            <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl"></div>
-            <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-2xl"></div>
-          </motion.div>
-        </motion.div>
-      </div>
-    </div>
-  )
-}
+            <Reveal delay={3} intro className="md:col-span-4">
+              <ParallaxImage
+                src="/profile2.png"
+                alt={profile.name}
+                priority
+                className="aspect-[4/5] w-full max-w-[280px] md:ml-auto md:max-w-none"
+              />
+              <p className="meta mt-4">
+                {profile.title} · {profile.company}
+              </p>
+            </Reveal>
+          </div>
+        </div>
 
-export default Home
+        {/* Ticker ------------------------------------------------------ */}
+        <div className="mask-fade-r border-y border-border">
+          <Marquee items={ticker} baseVelocity={0.85} />
+        </div>
+      </section>
+
+      {/* Metrics ------------------------------------------------------- */}
+      <div className="shell pt-16 md:pt-20">
+        <Reveal>
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-border pt-10 md:grid-cols-4">
+            {metrics.map((metric) => (
+              <div key={metric.label} data-cursor-grow>
+                <dt className="text-[clamp(1.75rem,3vw,2.5rem)] font-medium leading-none tracking-tightest text-foreground">
+                  <Counter value={metric.value} />
+                </dt>
+                <dd className="meta mt-3 leading-relaxed">{metric.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+      </div>
+
+      {/* Selected work ------------------------------------------------- */}
+      <Section className="shell">
+        <SectionHeading
+          label="Selected work"
+          aside={
+            <Link href="/work" className="link">
+              All projects ↗
+            </Link>
+          }
+          className="mb-10 md:mb-14"
+        />
+        <WorkList items={featured} />
+      </Section>
+
+      {/* Now ----------------------------------------------------------- */}
+      <Section className="shell !pt-0">
+        <SectionHeading
+          label="Now"
+          aside={current.period}
+          className="mb-10 md:mb-14"
+        />
+
+        <div className="grid gap-8 md:grid-cols-12">
+          <Reveal className="md:col-span-5">
+            <h2 className="h2 text-foreground">
+              {current.role}
+              <span className="block text-muted-foreground">
+                {current.company}
+              </span>
+            </h2>
+            <p className="meta mt-4">
+              {current.type} · {current.location}
+            </p>
+          </Reveal>
+
+          <Reveal delay={1} className="md:col-span-7">
+            <ScrollHighlight
+              text={current.description}
+              className="body text-[16px] text-foreground"
+            />
+            <ul className="mt-6 space-y-4">
+              {current.highlights.slice(0, 2).map((highlight, index) => (
+                <Reveal
+                  as="li"
+                  key={highlight}
+                  delay={index + 1}
+                  className="flex gap-4 border-t border-border pt-4"
+                >
+                  <span aria-hidden className="meta pt-0.5">
+                    —
+                  </span>
+                  <span className="body">{highlight}</span>
+                </Reveal>
+              ))}
+            </ul>
+            <Link href="/about" className="link mt-8 text-[14px]">
+              Full experience ↗
+            </Link>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* Capabilities -------------------------------------------------- */}
+      <Section className="shell !pt-0">
+        <SectionHeading
+          label="What I do"
+          aside={
+            <Link href="/services" className="link">
+              Services ↗
+            </Link>
+          }
+          className="mb-10 md:mb-14"
+        />
+
+        <div className="grid gap-x-10 md:grid-cols-2">
+          {capabilities.map((capability, index) => (
+            <Reveal key={capability.title} delay={index}>
+              <div
+                className="group relative isolate flex gap-6 overflow-hidden border-t border-border py-7"
+                data-cursor-grow
+              >
+                <span className="absolute inset-x-[-1.5rem] inset-y-0 -z-10 origin-bottom scale-y-0 bg-raised transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100" />
+                <span className="meta w-8 shrink-0 pt-1.5 transition-colors duration-300 group-hover:text-foreground">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="h3 text-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1.5">
+                    {capability.title}
+                  </h3>
+                  <p className="body mt-3">{capability.summary}</p>
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {capability.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="tag transition-colors duration-300 group-hover:border-foreground/25 group-hover:text-foreground/80"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* Contact ------------------------------------------------------- */}
+      <Section className="shell !pt-0">
+        <div className="border-t border-border pt-14 md:pt-20">
+          <Reveal>
+            <p className="eyebrow">Next</p>
+          </Reveal>
+          <AnimatedTextInView
+            as="h2"
+            text="Let's build something."
+            className="display mt-6 max-w-[14ch] text-foreground"
+          />
+          <Reveal delay={2}>
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <Magnetic>
+                <Link href="/contact" className="group btn-solid overflow-hidden">
+                  <RollText>Start a project</RollText>
+                  <span
+                    aria-hidden
+                    className="transition-transform duration-500 group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="group btn-ghost relative overflow-hidden"
+                >
+                  <span className="absolute inset-0 -z-10 origin-bottom scale-y-0 bg-raised transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100" />
+                  <RollText>{profile.email}</RollText>
+                </a>
+              </Magnetic>
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+    </>
+  );
+};
+
+export default Home;

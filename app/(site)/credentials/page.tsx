@@ -1,363 +1,239 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { motion } from "framer-motion";
+
+import AnimatedText from "@/components/AnimatedText";
+import Reveal from "@/components/Reveal";
 import {
-  User,
-  GraduationCap,
-  MapPin,
-  Calendar,
-  Award,
-  Download,
-  Mail,
-  Briefcase,
-} from "lucide-react";
-import { experiences } from "@/constants";
+  education,
+  experiences,
+  profile,
+  projects,
+  socials,
+  stack,
+} from "@/constants";
 
+export const metadata: Metadata = {
+  title: "CV",
+  description:
+    "Curriculum vitae — experience, education, stack, selected projects and contact details for Ashish Jadhav.",
+};
+
+/** A dense CV sheet. The narrative version of this lives on /about. */
 const Credentials = () => {
-  const socialLinks = [
-    {
-      href: "https://www.instagram.com/ashishhh2210?igsh=MWR1NHBxZmZ1MGY5OQ==",
-      icon: "/instagram.svg",
-      label: "Instagram",
-      color: "from-pink-500/20 to-purple-500/20",
-    },
-    {
-      href: "https://x.com/ashishhh2210",
-      icon: "/twitter.svg",
-      label: "Twitter",
-      color: "from-blue-400/20 to-cyan-400/20",
-    },
-    {
-      href: "https://discord.gg/63sd6r2N88",
-      icon: "/discord.svg",
-      label: "Discord",
-      color: "from-indigo-500/20 to-purple-500/20",
-    },
-    {
-      href: "https://github.com/Ashish1022",
-      icon: "/github.svg",
-      label: "GitHub",
-      color: "from-gray-500/20 to-gray-700/20",
-    },
-  ];
-
-  const achievements = [
-    {
-      title: "50+ Projects Completed",
-      description: "Successfully delivered various web applications",
-    },
-    {
-      title: "1+ Years Experience",
-      description: "Continuous learning and development in tech",
-    },
-    {
-      title: "Full-Stack Expertise",
-      description: "Proficient in both frontend and backend technologies",
-    },
-    {
-      title: "Modern Tech Stack",
-      description: "Always up-to-date with latest technologies",
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black-1 via-black-2 to-black-1">
-      <div className="mx-32 py-12 max-md:mx-4 gap-8 flex max-md:flex-col">
-        <motion.div
-          className="md:w-[30%] bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 md:sticky h-fit top-6 shadow-2xl"
-          initial={{ scale: 0, x: -100 }}
-          animate={{ scale: 1, x: 0 }}
-          transition={{ duration: 0.8, type: "spring" }}
-        >
-          <div className="relative mb-8">
-            <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white-3/20">
-              <Image
-                src="/profile.png"
-                alt="Ashish Jadhav"
-                width={300}
-                height={300}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-green-400 to-green-600 w-8 h-8 rounded-full border-4 border-black-2"></div>
+    <div className="shell pb-24 pt-20 md:pt-28">
+      {/* Masthead ------------------------------------------------------ */}
+      <Reveal intro>
+        <header className="grid gap-8 pb-10 md:grid-cols-12">
+          <div className="md:col-span-7">
+            <p className="eyebrow">Curriculum vitae</p>
+            <AnimatedText
+              text={profile.name}
+              delay={0.15}
+              className="h1 mt-6 text-foreground"
+            />
+            <p className="lede mt-3">
+              {profile.title} at {profile.company} · {profile.role}
+            </p>
           </div>
 
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-extrabold text-white-1 mb-2">
-              Ashish Jadhav
-            </h1>
-            <p className="text-white-3 font-semibold mb-3">@ashishhh2210</p>
-
-            <div className="inline-flex items-center gap-2 bg-blue-400/10 text-blue-300 px-3 py-1.5 rounded-full text-xs mb-4">
-              <Briefcase className="w-3.5 h-3.5" />
-              <span>Founding Engineer @ GradGuide</span>
-            </div>
-
-            <div className="flex items-center justify-center gap-2 text-white-3 mb-4">
-              <MapPin className="w-4 h-4" />
-              <span className="text-sm">Mumbai, India</span>
-            </div>
-
-            <div className="bg-gradient-to-r from-black-1/30 to-transparent rounded-xl p-4 mb-6">
-              <p className="text-white-2 text-sm leading-relaxed">
-                Full-Stack Developer passionate about creating innovative web
-                solutions and exploring cutting-edge technologies.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 mb-8">
-            {socialLinks.map((social, index) => (
-              <Link
-                key={index}
-                href={social.href}
-                target="_blank"
-                className="group"
+          <dl className="md:col-span-5 md:pl-10">
+            {[
+              ["Email", profile.email, `mailto:${profile.email}`],
+              ["Phone", profile.phone, `tel:${profile.phone.replace(/\s/g, "")}`],
+              ["Location", profile.location, null],
+              ["Résumé", "PDF ↗", profile.resume],
+            ].map(([label, value, href]) => (
+              <div
+                key={label as string}
+                className="flex items-baseline justify-between gap-4 border-t border-border py-2.5"
               >
-                <motion.div
-                  className={`bg-gradient-to-r ${social.color} p-3 rounded-xl hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl`}
-                  whileHover={{ y: -2 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Image
-                    src={social.icon || "/placeholder.svg"}
-                    alt={social.label}
-                    width={24}
-                    height={24}
-                    className="w-6 h-6 mx-auto group-hover:scale-110 transition-transform"
-                  />
-                </motion.div>
-              </Link>
+                <dt className="eyebrow">{label}</dt>
+                <dd className="meta text-right text-foreground">
+                  {href ? (
+                    <a
+                      href={href as string}
+                      target={
+                        (href as string).startsWith("/") ? "_blank" : undefined
+                      }
+                      rel="noreferrer"
+                      className="transition-opacity hover:opacity-60"
+                    >
+                      {value}
+                    </a>
+                  ) : (
+                    value
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </header>
+      </Reveal>
+
+      {/* Profile ------------------------------------------------------- */}
+      <Reveal>
+        <section className="grid gap-6 border-t border-border py-10 md:grid-cols-12 md:gap-10">
+          <h2 className="eyebrow md:col-span-3 md:pt-1">Profile</h2>
+          <p className="body max-w-2xl text-[16px] md:col-span-9">
+            {profile.intro}
+          </p>
+        </section>
+      </Reveal>
+
+      {/* Experience ---------------------------------------------------- */}
+      <Reveal>
+        <section className="grid gap-6 border-t border-border py-10 md:grid-cols-12 md:gap-10">
+          <h2 className="eyebrow md:col-span-3 md:pt-1">Experience</h2>
+
+          <div className="space-y-9 md:col-span-9">
+            {experiences.map((experience) => (
+              <article key={`${experience.role}-${experience.period}`}>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <h3 className="text-[17px] font-medium tracking-tight text-foreground">
+                    {experience.role}
+                    <span className="text-muted-foreground">
+                      {" "}
+                      · {experience.company}
+                    </span>
+                  </h3>
+                  <span className="meta">{experience.period}</span>
+                </div>
+
+                <p className="meta mt-2">
+                  {experience.type} · {experience.duration} ·{" "}
+                  {experience.location}
+                </p>
+
+                <ul className="mt-4 space-y-2">
+                  {experience.highlights.map((highlight) => (
+                    <li key={highlight} className="flex gap-3">
+                      <span aria-hidden className="meta pt-1">
+                        —
+                      </span>
+                      <span className="body text-[14px]">{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="meta mt-4 leading-relaxed">
+                  {experience.skills.join(" · ")}
+                </p>
+              </article>
             ))}
           </div>
+        </section>
+      </Reveal>
 
-          <div className="space-y-3">
-            <Link href="/contact">
-              <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
-                <Mail className="w-4 h-4 mr-2" />
-                Contact Me
-              </Button>
-            </Link>
-            <Button
-              variant="outline"
-              className="w-full border-white-3/30 text-white-2 hover:bg-white-3/10 bg-transparent py-3 rounded-xl"
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Download CV
-            </Button>
+      {/* Education ----------------------------------------------------- */}
+      <Reveal>
+        <section className="grid gap-6 border-t border-border py-10 md:grid-cols-12 md:gap-10">
+          <h2 className="eyebrow md:col-span-3 md:pt-1">Education</h2>
+
+          <div className="space-y-7 md:col-span-9">
+            {education.map((entry) => (
+              <article key={entry.degree}>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <h3 className="text-[17px] font-medium tracking-tight text-foreground">
+                    {entry.degree}
+                    <span className="text-muted-foreground">
+                      {" "}
+                      · {entry.institution}
+                    </span>
+                  </h3>
+                  <span className="meta">{entry.period}</span>
+                </div>
+                <p className="body mt-3 max-w-2xl text-[14px]">{entry.detail}</p>
+                <p className="meta mt-3 text-foreground">{entry.result}</p>
+              </article>
+            ))}
           </div>
+        </section>
+      </Reveal>
 
-          <div className="mt-8 grid grid-cols-2 gap-4">
-            <div className="text-center p-3 bg-black-1/30 rounded-xl">
-              <h4 className="text-lg font-bold text-white-1">50+</h4>
-              <p className="text-white-3 text-xs">Projects</p>
-            </div>
-            <div className="text-center p-3 bg-black-1/30 rounded-xl">
-              <h4 className="text-lg font-bold text-white-1">4+</h4>
-              <p className="text-white-3 text-xs">Years Exp</p>
-            </div>
-          </div>
-        </motion.div>
+      {/* Stack --------------------------------------------------------- */}
+      <Reveal>
+        <section className="grid gap-6 border-t border-border py-10 md:grid-cols-12 md:gap-10">
+          <h2 className="eyebrow md:col-span-3 md:pt-1">Stack</h2>
 
-        <div className="md:w-[70%] flex flex-col gap-12">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+          <dl className="space-y-4 md:col-span-9">
+            {stack.map((group) => (
+              <div
+                key={group.group}
+                className="grid gap-1 sm:grid-cols-4 sm:gap-6"
+              >
+                <dt className="meta sm:pt-1">{group.group}</dt>
+                <dd className="body text-[14px] text-foreground sm:col-span-3">
+                  {group.items.join(" · ")}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      </Reveal>
+
+      {/* Selected projects --------------------------------------------- */}
+      <Reveal>
+        <section className="grid gap-6 border-t border-border py-10 md:grid-cols-12 md:gap-10">
+          <h2 className="eyebrow md:col-span-3 md:pt-1">Selected projects</h2>
+
+          <ul className="md:col-span-9">
+            {projects.slice(0, 5).map((project) => (
+              <li key={project.id}>
+                <Link
+                  href={`/project/${project.id}`}
+                  className="group flex items-baseline justify-between gap-4 border-b border-border py-3 first:border-t"
+                >
+                  <span className="text-[15px] text-foreground">
+                    {project.name}
+                  </span>
+                  <span className="meta transition-colors group-hover:text-foreground">
+                    {project.service} · {project.year} ↗
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </Reveal>
+
+      {/* Links --------------------------------------------------------- */}
+      <Reveal>
+        <section className="grid gap-6 border-t border-border py-10 md:grid-cols-12 md:gap-10">
+          <h2 className="eyebrow md:col-span-3 md:pt-1">Links</h2>
+
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 md:col-span-9">
+            {socials.map((social) => (
+              <li key={social.label}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link text-[15px]"
+                >
+                  {social.label} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <div className="flex flex-wrap items-center gap-3 border-t border-border pt-10">
+          <a
+            href={profile.resume}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-solid"
           >
-            <motion.div variants={itemVariants}>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="bg-gradient-to-r from-blue-400/20 to-blue-600/20 p-3 rounded-xl">
-                  <User className="w-6 h-6 text-blue-400" />
-                </div>
-                <h2 className="text-3xl font-bold text-white-1">About Me</h2>
-              </div>
-
-              <div className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 shadow-2xl mb-8">
-                <p className="text-white-2 text-lg leading-relaxed mb-6">
-                  I&apos;m a passionate tech enthusiast with a relentless
-                  curiosity for the latest advancements in technology. From
-                  groundbreaking gadgets and innovative software to emerging
-                  trends in artificial intelligence and cybersecurity, I&apos;m
-                  always on the cutting edge of what&apos;s new and next.
-                </p>
-                <p className="text-white-2 text-lg leading-relaxed mb-6">
-                  My journey in tech is driven by a love for problem-solving and
-                  a desire to understand how things work behind the scenes.
-                  Whether it&apos;s building scalable web applications,
-                  exploring blockchain technology, or diving into machine
-                  learning, I thrive on discovering and sharing insights about
-                  the technologies that shape our future.
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-4 mt-8">
-                  {achievements.map((achievement, index) => (
-                    <motion.div
-                      key={index}
-                      className="bg-black-1/30 rounded-xl p-4 hover:bg-black-1/50 transition-colors"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <div className="flex items-center gap-3 mb-2">
-                        <Award className="w-5 h-5 text-yellow-400" />
-                        <h4 className="text-white-1 font-semibold">
-                          {achievement.title}
-                        </h4>
-                      </div>
-                      <p className="text-white-3 text-sm">
-                        {achievement.description}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="bg-gradient-to-r from-blue-400/20 to-blue-600/20 p-3 rounded-xl">
-                  <Briefcase className="w-6 h-6 text-blue-400" />
-                </div>
-                <h2 className="text-3xl font-bold text-white-1">Experience</h2>
-              </div>
-
-              <div className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 max-md:p-6 shadow-2xl mb-8">
-                <div className="relative pl-6 border-l-2 border-blue-400/30 space-y-8">
-                  {experiences.map((exp, index) => (
-                    <div key={index} className="relative">
-                      <div className="absolute -left-[34px] top-1 w-4 h-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"></div>
-
-                      <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <Calendar className="w-4 h-4 text-blue-400" />
-                        <span className="text-white-3 text-sm">
-                          {exp.period} · {exp.duration}
-                        </span>
-                        <span className="bg-blue-400/20 text-blue-300 px-2 py-0.5 rounded-full text-xs">
-                          {exp.type}
-                        </span>
-                      </div>
-
-                      <h3 className="text-xl font-bold text-white-1 mb-1">
-                        {exp.role}
-                      </h3>
-                      <p className="text-white-2 mb-3">
-                        {exp.company} · {exp.location}
-                      </p>
-                      <p className="text-white-3 leading-relaxed mb-4">
-                        {exp.description}
-                      </p>
-
-                      <ul className="space-y-2 mb-4">
-                        {exp.highlights.map((highlight, highlightIndex) => (
-                          <li
-                            key={highlightIndex}
-                            className="flex gap-3 text-white-3 text-sm leading-relaxed"
-                          >
-                            <span className="mt-2 w-1.5 h-1.5 shrink-0 rounded-full bg-blue-400"></span>
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="flex flex-wrap gap-2">
-                        {exp.skills.map((skill, skillIndex) => (
-                          <span
-                            key={skillIndex}
-                            className="bg-blue-400/10 text-blue-300 px-3 py-1 rounded-full text-xs"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="bg-gradient-to-r from-green-400/20 to-green-600/20 p-3 rounded-xl">
-                  <GraduationCap className="w-6 h-6 text-green-400" />
-                </div>
-                <h2 className="text-3xl font-bold text-white-1">Education</h2>
-              </div>
-
-              <div className="bg-gradient-to-br from-black-6 to-black-2 rounded-3xl p-8 shadow-2xl mb-8">
-                <div className="relative pl-6 border-l-2 border-green-400/30">
-                  <div className="absolute -left-2 top-0 w-4 h-4 bg-gradient-to-r from-green-400 to-green-600 rounded-full"></div>
-
-                  <div className="mb-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Calendar className="w-4 h-4 text-green-400" />
-                      <span className="text-white-3 text-sm">
-                        2022 - Present
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-white-1 mb-2">
-                      Bachelor of Engineering in Information Technology
-                    </h3>
-                    <p className="text-white-2 mb-4">University of Mumbai</p>
-                    <p className="text-white-3 leading-relaxed">
-                      During my studies at Bharati Vidyapeeth, I immersed myself
-                      in the dynamic field of Information Technology. My
-                      coursework included Software Engineering, Machine
-                      Learning, and Network Security, providing me with a solid
-                      foundation in both theoretical concepts and practical
-                      applications.
-                    </p>
-                  </div>
-
-                  <div className="grid md:grid-cols-3 gap-4 mt-6">
-                    <div className="bg-green-400/10 rounded-xl p-4 text-center">
-                      <h4 className="text-white-1 font-semibold mb-1">
-                        Current CGPA
-                      </h4>
-                      <p className="text-green-400 font-bold text-lg">8.5/10</p>
-                    </div>
-                    <div className="bg-green-400/10 rounded-xl p-4 text-center">
-                      <h4 className="text-white-1 font-semibold mb-1">
-                        Specialization
-                      </h4>
-                      <p className="text-white-3 text-sm">Web Technologies</p>
-                    </div>
-                    <div className="bg-green-400/10 rounded-xl p-4 text-center">
-                      <h4 className="text-white-1 font-semibold mb-1">
-                        Expected
-                      </h4>
-                      <p className="text-white-3 text-sm">2026</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
+            Download résumé ↗
+          </a>
+          <Link href="/contact" className="btn-ghost">
+            Get in touch
+          </Link>
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 };

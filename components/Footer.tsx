@@ -1,65 +1,82 @@
-"use client"
-import { navbarLinks } from "@/constants"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { Star, Heart } from "lucide-react"
+import { navbarLinks, profile, socials } from "@/constants";
+import Link from "next/link";
+import FooterMark from "./FooterMark";
+import LocalTime from "./LocalTime";
+import RollText from "./RollText";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
-    <motion.footer
-      className="mt-20 pt-16 pb-8 bg-gradient-to-t from-black-6 to-black-2 border-t border-white-3/10"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
-      <div className="max-w-6xl mx-auto px-8">
-        {/* Logo and Tagline */}
-        <div className="text-center mb-12">
-          <div className="flex justify-center items-center gap-3 mb-4">
-            <Star className="w-8 h-8 text-white-3 animate-pulse" />
-            <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-white-1 to-white-3 bg-clip-text text-transparent">
-              ZERO | PORTFOLIO
-            </h1>
-            <Star className="w-8 h-8 text-white-3 animate-pulse" />
-          </div>
-          <p className="text-white-2 text-lg max-w-2xl mx-auto">
-            Crafting digital experiences with passion, precision, and cutting-edge technology.
-          </p>
-        </div>
-
-        {/* Navigation Links */}
-        <div className="flex justify-center gap-8 mb-12 max-md:gap-4 max-md:flex-wrap">
-          {navbarLinks.map(({ route, label }) => (
-            <Link
-              key={route}
-              href={route}
-              className="text-white-3 hover:text-white-1 transition-colors duration-300 font-medium hover:scale-105 transform"
+    <footer className="relative overflow-hidden border-t border-border">
+      <div className="shell py-16 md:py-20">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-6">
+            <p className="eyebrow mb-5">Currently</p>
+            <p className="h3 max-w-md text-foreground">
+              Open to freelance work and interesting problems.
+            </p>
+            <a
+              href={`mailto:${profile.email}`}
+              className="link mt-6 inline-flex text-[15px]"
             >
-              <motion.p whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
-                {label}
-              </motion.p>
-            </Link>
-          ))}
+              {profile.email}
+            </a>
+          </div>
+
+          <nav className="md:col-span-3">
+            <p className="eyebrow mb-5">Pages</p>
+            <ul className="space-y-2.5">
+              {navbarLinks.map(({ route, label }) => (
+                <li key={route}>
+                  <Link
+                    href={route}
+                    className="group inline-block text-[14px] text-muted-foreground transition-colors duration-300 hover:text-foreground"
+                  >
+                    <RollText>{label}</RollText>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav className="md:col-span-3">
+            <p className="eyebrow mb-5">Elsewhere</p>
+            <ul className="space-y-2.5">
+              {socials.map(({ href, label }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex items-center gap-1.5 text-[14px] text-muted-foreground transition-colors duration-300 hover:text-foreground"
+                  >
+                    <RollText>{label}</RollText>
+                    <span
+                      aria-hidden
+                      className="text-[11px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    >
+                      ↗
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
-        {/* Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white-3/30 to-transparent mb-8"></div>
-
-        {/* Copyright */}
-        <div className="text-center">
-          <p className="text-white-3 flex justify-center items-center gap-2 tracking-wide">
-            <span>&copy; 2024 All rights reserved by</span>
-            <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text font-bold tracking-wider">
-              ZERO
-            </span>
-            <Heart className="w-4 h-4 text-red-400 animate-pulse" />
+        <div className="mt-16 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="meta">© {year} Ashish Jadhav</p>
+          <p className="meta">
+            <LocalTime />
           </p>
-          <p className="text-white-3 text-sm mt-2">Made with passion in Mumbai, India</p>
+          <p className="meta">Mumbai, India · 19.07°N 72.87°E</p>
         </div>
       </div>
-    </motion.footer>
-  )
-}
 
-export default Footer
+      <FooterMark />
+    </footer>
+  );
+};
+
+export default Footer;
